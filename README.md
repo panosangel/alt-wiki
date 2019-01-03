@@ -1,6 +1,6 @@
 # alt-wiki
 
-Guides and personal documention for popular system services and applications
+Guides and personal documentation for popular system services and applications
 
 ## System Commands
 
