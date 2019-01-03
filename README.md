@@ -11,6 +11,7 @@ Guides and personal documentation for popular system services and applications
 - Datetime sync
 - Networking
 - Swap
+- Users & Filesystem Layout
 
 ## System Services
 
