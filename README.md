@@ -9,6 +9,7 @@ Guides and personal documentation for popular system services and applications
 ## System Configuration
 
 - Datetime sync
+- MergerFS & SnapRAID
 - Networking
 - Swap
 - Users & Filesystem Layout
