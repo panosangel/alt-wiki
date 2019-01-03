@@ -25,4 +25,5 @@ Guides and personal documentation for popular system services and applications
 
 ## Applications
 
+- Deluge
 - Docker
