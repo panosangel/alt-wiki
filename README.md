@@ -16,6 +16,9 @@ Guides and personal documentation for popular system services and applications
 ## System Services
 
 - SSH
+
+## System Security
+
 - UFW
 
 ## System Commands
