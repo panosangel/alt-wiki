@@ -9,6 +9,7 @@ Guides and personal documentation for popular system services and applications
 ## System Configuration
 
 - Datetime sync
+- Disk Management
 - MergerFS & SnapRAID
 - Networking
 - Swap
@@ -16,6 +17,7 @@ Guides and personal documentation for popular system services and applications
 
 ## System Services
 
+- Samba
 - SSH
 
 ## System Security

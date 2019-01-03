@@ -1,4 +1,4 @@
-# System Services- SSH
+# System Service - SSH
 
 ## Create strong cryptographic keys on the server
 Use a **stronger** Diffie-Hellman Algorithm
