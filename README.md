@@ -12,7 +12,7 @@ Guides and personal documentation for popular system services and applications
 - Networking
 - Swap
 
-## System Service
+## System Services
 
 - SSH
 
@@ -22,3 +22,6 @@ Guides and personal documentation for popular system services and applications
 - GnuPG
 - Manage Git Accounts
 
+## Applications
+
+- Docker
