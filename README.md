@@ -19,6 +19,7 @@ Guides and personal documentation for popular system services and applications
 
 ## System Security
 
+- Root Account Hardening
 - UFW
 
 ## System Commands
