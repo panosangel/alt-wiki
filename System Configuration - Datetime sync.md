@@ -1,4 +1,4 @@
-# System Setup - Datetime Sync
+# System Configuration - Datetime Sync
 
 Check date and time:
 ```bash
