@@ -1,4 +1,4 @@
-# Security - fail2ban
+# System Security - fail2ban
 
 ## Basic configuration
 Install package:
