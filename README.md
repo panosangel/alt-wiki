@@ -22,6 +22,7 @@ Guides and personal documentation for popular system services and applications
 
 ## System Security
 
+- fail2ban
 - Root Account Hardening
 - UFW
 
