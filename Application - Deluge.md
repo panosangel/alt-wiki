@@ -1,4 +1,4 @@
-# Application - Deluge
+# Application - Deluge (headless)
 
 ## Prerequisites
 Using the power of `Docker` we can install `Deluge` in a moment!
@@ -7,54 +7,53 @@ _See the appropriate guide for more!_
 
 ## Install Deluge
 1. Get it from [DockerHub - linuxserver/deluge](https://hub.docker.com/r/linuxserver/deluge)
-
 2. Create the `docker-compose.yml`
-```bash
-touch ~/docker/deluge/docker-compose.yml
-```
-
+    ```bash
+    touch ~/docker/deluge/docker-compose.yml
+    ```
 3.  Add content from the link (1)
-```bash
-nano ~/docker/deluge/docker-compose.yml
-```
-Template:
-```docker
-version: "2"
-services:
-  deluge:
-    image: linuxserver/deluge
-    container_name: deluge
-    network_mode: host
-    environment:
-      - PUID=1001
-      - PGID=1001
-      - UMASK_SET=<022>
-      - TZ=<timezone>
-    volumes:
-      - </path/to/deluge/config>:/config
-      - </path/to/your/downloads>:/downloads
-    mem_limit: 4096m
-    restart: unless-stopped
-```
-And how it finally looks:
-```docker
-version: "2"
-services:
-  deluge:
-    image: linuxserver/deluge
-    container_name: deluge
-    network_mode: host
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - UMASK_SET=022
-      - TZ=Europe/Athens
-    volumes:
-      - ~/docker/deluge/config:/config
-      - ~/docker/deluge/downloads:/downloads
-    mem_limit: 4096m
-    restart: unless-stopped
-```
+    ```bash
+     nano ~/docker/deluge/docker-compose.yml
+    ```
+    Template:
+    ```docker
+    version: "2"
+    services:
+      deluge:
+        image: linuxserver/deluge
+        container_name: deluge
+        network_mode: host
+        environment:
+          - PUID=1001
+          - PGID=1001
+          - UMASK_SET=<022>
+          - TZ=<timezone>
+        volumes:
+          - </path/to/deluge/config>:/config
+          - </path/to/your/downloads>:/downloads
+        mem_limit: 4096m
+        restart: unless-stopped
+    ```
+    And how it finally looks:
+
+    ```docker
+    version: "2"
+    services:
+      deluge:
+        image: linuxserver/deluge
+        container_name: deluge
+        network_mode: host
+        environment:
+          - PUID=1000
+          - PGID=1000
+          - UMASK_SET=022
+          - TZ=Europe/Athens
+        volumes:
+          - ~/docker/deluge/config:/config
+          - ~/docker/deluge/downloads:/downloads
+        mem_limit: 4096m
+        restart: unless-stopped
+    ```
 
 ## Initialize & Configure
 Fire up:
@@ -122,6 +121,7 @@ In the client's box run:
 ```bash
 ssh -i ~/.ssh/id_rsa_user -fNT -L 58802:127.0.0.1:58846 <remote_user>@<deluge_running_host_ip>
 ```
+
 ### Deluge client
 TODO
 
