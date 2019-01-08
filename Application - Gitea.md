@@ -1,7 +1,7 @@
 # Application - Gitea
 
 ## Prerequisites
-Using the power of `Docker` we can install `Gitea` in a moment!
+Using the power of `Docker` we can install `Gitea` in a moment or two ;)
 Docker and docker-compose must be already installed. 
 _See the appropriate guide for more!_
 
@@ -128,3 +128,5 @@ sudo ufw allow from any to any port 3030 proto tcp
 ```
 **Note:** The modem/router NAT should be configured accordingly to allow incoming connections to the server.
 
+## Appendix A - Sources
+- [Official Gitea Docs](https://docs.gitea.io/en-us/)
