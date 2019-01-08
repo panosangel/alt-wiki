@@ -7,54 +7,52 @@ _See the appropriate guide for more!_
 
 ## Fetch Gitea
 1. Get it from [DockerHub - gitea/gitea](https://hub.docker.com/r/gitea/gitea)
-
 2. Read the instructions at the [Official Page](https://docs.gitea.io/en-us/install-with-docker/)
-
 3.  Create `docker-compose.yml` and add content from the link (2)
-```bash
-nano ~/docker/gitea/docker-compose.yml
-```
-Template
-```docker
-version: "2"
-
-networks:
-  gitea:
-    external: false
-
-services:
-  server:
-    image: gitea/gitea:latest
-    environment:
-      - USER_UID=1000
-      - USER_GID=1000
-    restart: always
+    ```bash
+    nano ~/docker/gitea/docker-compose.yml
+    ```
+    Template
+    ```docker
+    version: "2"
+    
     networks:
-      - gitea
-    volumes:
-      - ./gitea:/data
-    ports:
-      - "3000:3000"
-      - "222:22"
-```
-And how it finally looks:
-```docker
-version: "2"
-
-services:
-  web:
-    image: gitea/gitea:latest
-    container_name: gitea    
-    environment:
-      - USER_UID=1000
-      - USER_GID=1000
-    volumes:
-      - ~/docker/gitea/data:/data
-    ports:
-      - "3030:3000"
-      - "2022:22"
-    restart: unless-stopped
-```
+      gitea:
+        external: false
+    
+    services:
+      server:
+        image: gitea/gitea:latest
+        environment:
+          - USER_UID=1000
+          - USER_GID=1000
+        restart: always
+        networks:
+          - gitea
+        volumes:
+          - ./gitea:/data
+        ports:
+          - "3000:3000"
+          - "222:22"
+    ```
+    And how it finally looks:
+    ```docker
+    version: "2"
+    
+    services:
+      web:
+        image: gitea/gitea:latest
+        container_name: gitea    
+        environment:
+          - USER_UID=1000
+          - USER_GID=1000
+        volumes:
+          - ~/docker/gitea/data:/data
+        ports:
+          - "3030:3000"
+          - "2022:22"
+        restart: unless-stopped
+    ```
 
 ## Initialize application
 Fire up:
