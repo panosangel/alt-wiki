@@ -37,3 +37,7 @@ Guides and personal documentation for popular system services and applications
 - Deluge
 - Docker
 - Gitea
+
+## Various
+
+- Let's Encrypt
