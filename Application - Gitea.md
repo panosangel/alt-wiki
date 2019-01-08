@@ -98,6 +98,29 @@ ENABLE_OPENID_SIGNIN = false
 ENABLE_OPENID_SIGNUP = false
 ```
 
+## Optional - Enable SSL
+1. Get the SSL certificates. _See the appropriate guide for more!_
+2. We assume that they are stored at `/etc/letsencrypt`
+3. Check the permissions of your docker user regarding the keys and make the appropriate changes.
+4. Edit configuration file:
+    ```bash
+    nano ~/docker/gitea/data/gitea/conf/app.ini
+    ```
+    Add/edit the following to enable https on the website:
+    ```
+    [service]
+    PROTOCOL         = https
+    CERT_FILE        = /etc/letsencrypt/live/<yourdomain.tld>/cert.pem
+    KEY_FILE         = /etc/letsencrypt/live/<yourdomain.tld>/privkey.pem
+    ROOT_URL         = https://<external-ip>:3030/
+    ```
+5. Edit `docker-compose.yml` and add the following line:
+    ```docker
+    volumes:
+          ...
+          - /etc/letsencrypt:/etc/letsencrypt
+    ```
+
 ## Firewall rules
 Allow incoming connections :
 ```bash
