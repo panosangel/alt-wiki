@@ -23,6 +23,10 @@ More detailed report can be found running:
 ```bash
 sudo smartctl -a /dev/<disk-name>
 ```
+Results of the last tests: 
+```bash
+sudo smartctl -l selftest /dev/<disk-name>
+```
 
 ## Check disk's SMART capabilities
 ```bash
