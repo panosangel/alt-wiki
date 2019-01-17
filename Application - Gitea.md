@@ -119,6 +119,18 @@ ENABLE_OPENID_SIGNUP = false
           - /etc/letsencrypt:/etc/letsencrypt
     ```
 
+## Troubleshooting SSL
+There is a chance that the SSL cert cannot be verified. If you are sure of the server's ownership then you can disable the check.
+1. Clone the repository as follows:
+    `GIT_SSL_NO_VERIFY=true git clone <git-repo-url>`
+2. Make it the default action for tis repo
+    `nano <repo-path>/.git/config`
+    Add the following:
+    ```
+    [http]
+    	sslVerify = false
+    ```
+
 ## Firewall rules
 Allow incoming connections :
 ```bash
