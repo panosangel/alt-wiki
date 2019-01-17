@@ -123,8 +123,8 @@ ENABLE_OPENID_SIGNUP = false
 There is a chance that the SSL cert cannot be verified. If you are sure of the server's ownership then you can disable the check.
 1. Clone the repository as follows:
     `GIT_SSL_NO_VERIFY=true git clone <git-repo-url>`
-2. Make it the default action for tis repo
-    `nano <repo-path>/.git/config`
+2. Make it the default action for this repo
+    `nano <repo-path>/.git/config`  
     Add the following:
     ```
     [http]
