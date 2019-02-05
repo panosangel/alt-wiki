@@ -18,7 +18,7 @@ _See the appropriate guide for more!_
 ```bash
 sudo tune2fs -m 2 /dev/sdb1
 sudo tune2fs -m 2 /dev/sdc1
-# parity disk must be bigget than data disk
+# parity disk must be bigger than data disk
 sudo tune2fs -m 1 /dev/sdd1
 ```
 
@@ -77,7 +77,7 @@ sudo mount -a
 df -Th
 ```
 
-## Installing and configuring SnapRAID
+## Installing SnapRAID
 In Ubuntu we have two options for installing SnapRAID.
 From PPA:
 ```bash
