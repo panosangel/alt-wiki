@@ -134,14 +134,18 @@ Add/edit the `~/docker/deluge/config/core.conf` to include the following
       "password": "",
       "type": 2,
       "hostname": "127.0.0.1",
-      "port": 8080
+      "port": 9090
     },
     ...
   },
 ```
 Create the tunnel with the proxy server.
 ```bash
-ssh -D 8080 -f -C -q -N <remote_user>@<remote_proxy_ip>
+ssh -p <sshd_port> -i <private_key_path> -D 9090 -f -C -q -N <remote_user>@<remote_proxy_ip>
+```
+or make it _persistent_ using autossh:
+```bash
+autossh -M 0 -f -p <sshd_port> -C -q -N -i <private_key_path> -D 9090 <remote_user>@<remote_proxy_ip>
 ```
 Add the following .torrent in the client and it should give an 'error' followed by the current gateway ip.
 ```
