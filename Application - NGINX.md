@@ -24,7 +24,8 @@ _See the appropriate guide for more!_
           - ./logs:/var/logs/nginx
         ports:
           - "80:80"
-          - "443:443"  
+          - "443:443"
+        restart: always
     ```
 
 ## Basic Configuration

@@ -32,7 +32,7 @@ _See the appropriate guide for more!_
           - </path/to/deluge/config>:/config
           - </path/to/your/downloads>:/downloads
         mem_limit: 4096m
-        restart: unless-stopped
+        restart: always
     ```
     And how it finally looks:
 
