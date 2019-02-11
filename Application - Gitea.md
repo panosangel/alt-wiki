@@ -50,7 +50,6 @@ _See the appropriate guide for more!_
           - ~/docker/gitea/data:/data
         ports:
           - "3030:3000"
-          - "2022:22"
         restart: unless-stopped
     ```
 
