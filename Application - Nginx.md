@@ -178,6 +178,26 @@ Any request that is directed to `server_name` and the specific `location` are pr
       - /etc/letsencrypt:/etc/letsencrypt
     ```
 
+## Firewall rules
+Allow incoming connections:
+```bash
+sudo ufw allow from any to any port 80,443 proto tcp
+```
+**Note:** The modem/router NAT should be configured accordingly to allow incoming connections to the server.
+
+## Optional - Firewall rules for proxied services
+Allow incoming connections from docker bridge interfaces (network_mode: bridge). This is the default docker mode.
+```bash
+sudo ufw allow from 172.0.0.0/8
+```
+or per service:
+```
+sudo ufw allow from 172.0.0.0/8 to any port <service_port> proto tcp
+```
+
+**Note 1:** Firewall rules are necessary for containers to communicate when they DON'T share the same network.  
+**Note 2:** docker compose adds all containers in the same network so the above is not needed.
+
 ## Appendix A - Sources
 - [Setting up a Reverse-Proxy with Nginx and docker-compose](https://dev.to/domysee/setting-up-a-reverse-proxy-with-nginx-and-docker-compose-29jg)
 - [Docker compose : NGINX reverse proxy with multiple containers](https://www.bogotobogo.com/DevOps/Docker/Docker-Compose-Nginx-Reverse-Proxy-Multiple-Containers.php)
