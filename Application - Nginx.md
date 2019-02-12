@@ -124,7 +124,7 @@ server {
     server_name dev.domain.tld;
     listen 80;
 
-    access_log /config/log/nginx/dev.domain.tld_access.log combined;
+    access_log /config/log/nginx/dev.domain.tld_access.log combined gzip;
 
     location / {
         proxy_pass      http://172.17.0.1:8080;
@@ -163,7 +163,7 @@ Any request that is directed to `server_name` and the specific `location` are pr
         ssl_certificate /etc/letsencrypt/live/domain.tld/fullchain.pem;
         ssl_certificate_key /etc/letsencrypt/live/domain.tld/privkey.pem;
     
-        access_log /config/log/nginx/dev.domain.tld_access.log combined;
+        access_log /config/log/nginx/dev.domain.tld_access.log combined gzip;
         
         location / {
             proxy_pass      http://172.17.0.1:8080;
