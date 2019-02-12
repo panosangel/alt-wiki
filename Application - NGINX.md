@@ -6,83 +6,141 @@ Docker and docker-compose must be already installed.
 _See the appropriate guide for more!_
 
 ## Install NGINX
-1. Get it from [DockerHub - Official Nginx](https://hub.docker.com/_/nginx)
+1. Get it from [DockerHub - linuxserver/nginx](https://hub.docker.com/r/linuxserver/nginx)
 2. Create the `docker-compose.yml`
     ```bash
     touch ~/docker/nginx/docker-compose.yml
     ```
-3. Add content as follows based on research (see sources):
+3.  Add content from the link (1)
     ```docker
-    version: '3'
+    version: "2"
+    services:
+      nginx:
+        image: linuxserver/nginx
+        container_name: nginx
+        environment:
+          - PUID=1001
+          - PGID=1001
+          - TZ=Europe/London
+        volumes:
+          - </path/to/appdata/config>:/config
+        ports:
+          - 80:80
+          - 443:443
+        mem_limit: 4096m
+        restart: unless-stopped
+    ```
+    And how it finally looks:
+    ```docker
+    version: '2'
     
     services:
-      reverse_proxy:
-        image: nginx:latest
-        container_name: nginx_reverse
+      webserver:
+        image: linuxserver/nginx
+        container_name: nginx
+        environment:
+          - PUID=1000
+          - PGID=1000
+          - TZ=Europe/Athens
         volumes:
-          - ./nginx.conf:/etc/nginx/nginx.conf
-          - ./logs:/var/logs/nginx
+          - ./config:/config
+          - /etc/letsencrypt:/etc/letsencrypt
         ports:
           - "80:80"
           - "443:443"
+        mem_limit: 4096m
         restart: always
     ```
 
 ## Basic Configuration
-Create configuration file:
+Edit the main configuration file:
 ```bash
-nano ~/docker/nginx/nginx.conf
+nano ~/docker/nginx/config/nginx/nginx.conf
 ```
-Paste the following content:
+Add/edit the following content:
 ```
-worker_processes 1;
-
-events { worker_connections 1024; }
-
+worker_processes auto;
+```
+```
+events {
+    ...
+    worker_connections 1024;
+    ...
+}
+```
+```
 http {
+    ##
+    # SSL Settings
+    ##
+    
+    ssl_protocols TLSv1.1 TLSv1.2;
+    ssl_prefer_server_ciphers on;
+    ssl_ciphers ECDH+AESGCM:ECDH+AES256:ECDH+AES128:DHE+AES128:!ADH:!AECDH:!MD5;
 
-    sendfile on;
+    ##
+    # Logging Settings
+    ##
 
-    error_log /var/logs/nginx/error.log warn;
+    error_log /config/log/nginx/error.log warn;
 
     log_format compression '$remote_addr - $remote_user [$time_local] '
         '"$request" $status $upstream_addr '
         '"$http_referer" "$http_user_agent" "$gzip_ratio"';
 
-    upstream python-dev {
-        server 172.17.0.1:8080;
-    }
+    ##
+    # Virtual Host Configs
+    ##
+
+    include /config/nginx/site-confs/*.conf;
+
+    ##
+    # Proxy Settings
+    ##
 
     proxy_set_header   Host $host;
     proxy_set_header   X-Real-IP $remote_addr;
     proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header   X-Forwarded-Host $server_name;
-
-    server {
-        server_name dev.domain.tld;
-        listen 80;
-
-        access_log /var/logs/nginx/dev.domain.tld_access.log compression;
-
-        location / {
-            proxy_pass      http://python-dev;
-            proxy_redirect  off;
-        }
-    }
 }
 ```
 
-## What does the code above?
-1. Declare a service under the alias `python-dev` which resolves to `ip:port`.
+### What does the code above?
+1. With `proxy_set_header` directives we bypass the default Nginx behavior and apply the most common production settings.
+2. [OPTIONAL] Declare a service under the alias `python-dev` which resolves to `ip:port`.
 If we connect to another docker container we change it to `container_name:port`
     ```
     upstream python-dev {
             server 172.17.0.1:8080;
     }
     ```
-2. With `proxy_set_header` directives we bypass the default nginx behavior and apply the most common production settings.
-3. The `server` directive registers... a server! By default the server `listen` on port 80.
+
+## Add Virtual Hosts
+**Note:** Because of the line `include /config/nginx/site-confs/*.conf;` in the main config file,
+in order for a vhost config to be enabled it must have `.conf` extension. Otherwise it is ignored!
+
+Add a virtual host:
+```bash
+nano ~/docker/nginx/config/nginx/site-confs/dev.domain.tld.conf
+```
+```
+server {
+    server_name dev.domain.tld;
+    listen 80;
+
+    access_log /config/log/nginx/dev.domain.tld_access.log compression;
+
+    location / {
+        proxy_pass      http://172.17.0.1:8080;
+        proxy_redirect  off;
+    }
+}
+```
+
+### What does the code above?
+1. The `server` directive registers... a server! By default the server `listen`'s on port 80.
 Any request that is directed to `server_name` and the specific `location` are proxied to `proxy_pass` service.
+2. [OPTIONAL] If an `upstream` directive has been declared in the main config, that alias can be used in the `proxy_pass`.
 
 ## Test
 1. Run the nginx server using `docker-compose up` on the same folder where the `docker-compose.yml` file is.
@@ -92,13 +150,13 @@ Any request that is directed to `server_name` and the specific `location` are pr
 5. Run `wget dev.domain.tld`.
 6. Enjoy!
 
-## Optional - Enable SSL
+## Optional - Enable SSL per vhost
 1. Get the SSL certificates. _See the appropriate guide for more!_
 2. We assume that they are stored at `/etc/letsencrypt`
 3. Check the permissions of your docker user regarding the keys and make the appropriate changes.
 4. Edit configuration file:
     ```bash
-    nano ~/docker/nginx/nginx.conf
+    nano ~/docker/nginx/config/nginx/site-confs/dev.domain.tld.conf
     ```
     Add/edit the following to enable https on the website:
     ```
@@ -108,12 +166,11 @@ Any request that is directed to `server_name` and the specific `location` are pr
         listen 443 ssl;
         ssl_certificate /etc/letsencrypt/live/domain.tld/fullchain.pem;
         ssl_certificate_key /etc/letsencrypt/live/domain.tld/privkey.pem;
-        include /etc/letsencrypt/options-ssl-nginx.conf;
     
-        access_log /var/logs/nginx/domain.tld_access.log compression;
-    
+        access_log /config/log/nginx/dev.domain.tld_access.log compression;
+        
         location / {
-            proxy_pass      http://python-dev;
+            proxy_pass      http://172.17.0.1:8080;
             proxy_redirect  off;
         }
     }
@@ -123,17 +180,6 @@ Any request that is directed to `server_name` and the specific `location` are pr
     volumes:
       ...
       - /etc/letsencrypt:/etc/letsencrypt
-    ```
-6. Create a file with common SSL directives:
-    ```
-    nano /etc/letsencrypt/options-ssl-nginx.conf
-    ```
-    Add the following content:
-    ```
-    ssl_protocols TLSv1.1 TLSv1.2;
-    
-    ssl_prefer_server_ciphers on;
-    ssl_ciphers ECDH+AESGCM:ECDH+AES256:ECDH+AES128:DHE+AES128:!ADH:!AECDH:!MD5;`
     ```
 
 ## Appendix A - Sources
