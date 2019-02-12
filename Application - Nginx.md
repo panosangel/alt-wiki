@@ -70,6 +70,13 @@ events {
 ```
 ```
 http {
+
+    ##
+    # Basic Settings
+    ##
+
+    server_tokens off;
+    
     ##
     # SSL Settings
     ##
