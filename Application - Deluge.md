@@ -32,7 +32,7 @@ _See the appropriate guide for more!_
           - </path/to/deluge/config>:/config
           - </path/to/your/downloads>:/downloads
         mem_limit: 4096m
-        restart: always
+        restart: unless-stopped
     ```
     And how it finally looks:
 
@@ -49,10 +49,10 @@ _See the appropriate guide for more!_
           - UMASK_SET=022
           - TZ=Europe/Athens
         volumes:
-          - ~/docker/deluge/config:/config
-          - ~/docker/deluge/downloads:/downloads
+          - ./config:/config
+          - ./downloads:/downloads
         mem_limit: 4096m
-        restart: unless-stopped
+        restart: always
     ```
 
 ## Initialize & Configure
