@@ -33,6 +33,7 @@ Guides and personal documentation for popular system services and applications
 - Deluge
 - Docker
 - Gitea
+- Nginx
 
 ## Various
 - Let's Encrypt
