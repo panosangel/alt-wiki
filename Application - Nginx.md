@@ -164,6 +164,12 @@ Any request that is directed to `server_name` and the specific `location` are pr
     Add/edit the following to enable https on the website:
     ```
     server {
+        listen 80;
+        server_name dev.domain.tld;
+        return 301 https://$host$request_uri;
+    }
+    
+    server {
         server_name dev.domain.tld;
     
         listen 443 ssl;
