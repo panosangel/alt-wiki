@@ -84,6 +84,8 @@ http {
     ssl_protocols TLSv1.1 TLSv1.2;
     ssl_prefer_server_ciphers on;
     ssl_ciphers ECDH+AESGCM:ECDH+AES256:ECDH+AES128:DHE+AES128:!ADH:!AECDH:!MD5;
+    # Generate random dhparam: `openssl dhparam 4096 -out /etc/ssl/dhparam.pem`
+    ssl_dhparam /config/keys/dhparam.pem;
 
     ##
     # Logging Settings
