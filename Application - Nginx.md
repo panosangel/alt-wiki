@@ -86,6 +86,9 @@ http {
     ssl_ciphers ECDH+AESGCM:ECDH+AES256:ECDH+AES128:DHE+AES128:!ADH:!AECDH:!MD5;
     # Generate random dhparam: `openssl dhparam 4096 -out /etc/ssl/dhparam.pem`
     ssl_dhparam /config/keys/dhparam.pem;
+    
+    ssl_session_cache shared:SSL:1m;
+    ssl_session_timeout 10m;
 
     ##
     # Logging Settings
