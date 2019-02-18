@@ -89,6 +89,7 @@ http {
     
     ssl_session_cache shared:SSL:1m;
     ssl_session_timeout 10m;
+    ssl_session_tickets off;
 
     ##
     # Logging Settings
