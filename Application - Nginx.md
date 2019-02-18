@@ -106,6 +106,7 @@ http {
     add_header X-Frame-Options SAMEORIGIN;
     add_header X-Content-Type-Options nosniff;
     add_header X-Xss-Protection "1; mode=block";
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;
 
     ##
     # Proxy Settings
@@ -229,7 +230,7 @@ sudo ufw allow from 172.0.0.0/8 to any port <service_port> proto tcp
 - [Reverse proxy with Nginx](https://github.com/gitbucket/gitbucket/wiki/Reverse-proxy-with-Nginx)
 - [Running an NGINX Reverse Proxy with Docker and Let's Encrypt on Google Compute Engine](https://cloud.google.com/community/tutorials/nginx-reverse-proxy-docker)
 - [Cipherli.st Strong Ciphers for Apache, nginx and Lighttpd](https://cipherli.st/)
-- []()
+- [Nginx tuning tips: TLS/SSL HTTPS – Improved TTFB/latency](https://haydenjames.io/nginx-tuning-tips-tls-ssl-https-ttfb-latency/)
 - []()
 - []()
 - []()
