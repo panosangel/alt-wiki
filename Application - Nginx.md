@@ -189,6 +189,8 @@ Any request that is directed to `server_name` and the specific `location` are pr
         listen 443 ssl;
         ssl_certificate /etc/letsencrypt/live/domain.tld/fullchain.pem;
         ssl_certificate_key /etc/letsencrypt/live/domain.tld/privkey.pem;
+        
+        gzip off;
     
         access_log /config/log/nginx/dev.domain.tld_access.log combined gzip;
         
