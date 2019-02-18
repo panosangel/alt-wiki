@@ -207,6 +207,7 @@ Any request that is directed to `server_name` and the specific `location` are pr
       ...
       - /etc/letsencrypt:/etc/letsencrypt
     ```
+6. Reload server to get new configuration and test it with [SSL Labs](https://www.ssllabs.com/index.html).
 
 ## Firewall rules
 Allow incoming connections:
@@ -239,5 +240,5 @@ sudo ufw allow from 172.0.0.0/8 to any port <service_port> proto tcp
 - [Nginx tuning tips: TLS/SSL HTTPS – Improved TTFB/latency](https://haydenjames.io/nginx-tuning-tips-tls-ssl-https-ttfb-latency/)
 - [Getting a Perfect SSL Labs Score](https://michael.lustfield.net/nginx/getting-a-perfect-ssl-labs-score)
 - [Getting Started with NGINX - Part 4: TLS Deployment Best Practices](https://www.linode.com/docs/web-servers/nginx/tls-deployment-best-practices-for-nginx/#increase-keepalive-duration)
-- []()
-- []()
+- [How to properly configure your nginx for TLS](https://medium.com/@mvuksano/how-to-properly-configure-your-nginx-for-tls-564651438fe0)
+- [GitHubGist - Best nginx configuration for improved security(and performance)](https://gist.github.com/plentz/6737338)
