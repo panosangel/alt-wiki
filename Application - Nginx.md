@@ -98,6 +98,14 @@ http {
     ##
 
     include /config/nginx/site-confs/*.conf;
+    
+    ##
+    # Enhancing Security Headers
+    ##
+
+    add_header X-Frame-Options SAMEORIGIN;
+    add_header X-Content-Type-Options nosniff;
+    add_header X-Xss-Protection "1; mode=block";
 
     ##
     # Proxy Settings
@@ -220,3 +228,9 @@ sudo ufw allow from 172.0.0.0/8 to any port <service_port> proto tcp
 - [Using Containers to Learn Nginx Reverse Proxy](https://medium.com/@joatmon08/using-containers-to-learn-nginx-reverse-proxy-6be8ac75a757)
 - [Reverse proxy with Nginx](https://github.com/gitbucket/gitbucket/wiki/Reverse-proxy-with-Nginx)
 - [Running an NGINX Reverse Proxy with Docker and Let's Encrypt on Google Compute Engine](https://cloud.google.com/community/tutorials/nginx-reverse-proxy-docker)
+- [Cipherli.st Strong Ciphers for Apache, nginx and Lighttpd](https://cipherli.st/)
+- []()
+- []()
+- []()
+- []()
+- []()
