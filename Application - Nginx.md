@@ -186,7 +186,7 @@ Any request that is directed to `server_name` and the specific `location` are pr
     server {
         server_name dev.domain.tld;
     
-        listen 443 ssl;
+        listen 443 ssl http2;
         ssl_certificate /etc/letsencrypt/live/domain.tld/fullchain.pem;
         ssl_certificate_key /etc/letsencrypt/live/domain.tld/privkey.pem;
         
@@ -236,7 +236,7 @@ sudo ufw allow from 172.0.0.0/8 to any port <service_port> proto tcp
 - [Running an NGINX Reverse Proxy with Docker and Let's Encrypt on Google Compute Engine](https://cloud.google.com/community/tutorials/nginx-reverse-proxy-docker)
 - [Cipherli.st Strong Ciphers for Apache, nginx and Lighttpd](https://cipherli.st/)
 - [Nginx tuning tips: TLS/SSL HTTPS – Improved TTFB/latency](https://haydenjames.io/nginx-tuning-tips-tls-ssl-https-ttfb-latency/)
-- []()
-- []()
+- [Getting a Perfect SSL Labs Score](https://michael.lustfield.net/nginx/getting-a-perfect-ssl-labs-score)
+- [Getting Started with NGINX - Part 4: TLS Deployment Best Practices](https://www.linode.com/docs/web-servers/nginx/tls-deployment-best-practices-for-nginx/#increase-keepalive-duration)
 - []()
 - []()
