@@ -47,7 +47,7 @@ _See the appropriate guide for more!_
           - USER_UID=1000
           - USER_GID=1000
         volumes:
-          - ~/docker/gitea/data:/data
+          - ./data:/data
         ports:
           - "3030:3000"
         restart: always
