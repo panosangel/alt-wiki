@@ -40,7 +40,7 @@ _See the appropriate guide for more!_
     version: "2"
     services:
       deluge:
-        image: linuxserver/deluge
+        image: linuxserver/deluge:latest
         container_name: deluge
         network_mode: host
         environment:

@@ -36,7 +36,7 @@ _See the appropriate guide for more!_
     
     services:
       webserver:
-        image: linuxserver/nginx
+        image: linuxserver/nginx:latest
         container_name: nginx
         environment:
           - PUID=1000
