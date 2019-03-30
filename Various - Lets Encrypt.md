@@ -12,20 +12,18 @@ sudo apt-get install certbot
 
 ## Issue certificate - DNS method (manual)
 We assume that port 80 and/or port 443 is not available in our system. As a result we must use `dns` method. Manual mode is selected in case our DNS domain registrar is not supported. The method is pretty straight forward and requires only one DNS (TXT) record entry.
-
 ```bash
 sudo certbot certonly \
   --manual \
   --preferred-challenges dns \
-  --server https://acme-v02.api.letsencrypt.org/directory \
   --email panagiotis@angelidakis.net \
   --manual-public-ip-logging-ok \
   --agree-tos \
   --no-eff-email
 ```
-**Note:** When asked about the domain to be certified, list first the wildcard and then the main one i.e:
+Then we list all the domains we want to secure with the certificate. Manual DNS mode allows for **wildcard** domains as well.
 ```
-*.mydomain.com mydomain.com
+*.mydomain.com
 ```
 Add the TXT records to the DNS registrar as instructed in the screen.
 Then verify the certificate:
