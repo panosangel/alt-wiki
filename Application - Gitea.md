@@ -37,7 +37,7 @@ _See the appropriate guide for more!_
     ```
     And how it finally looks:
     ```docker
-    version: "2"
+    version: "3.7"
     
     services:
       web:

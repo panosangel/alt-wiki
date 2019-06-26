@@ -32,7 +32,7 @@ _See the appropriate guide for more!_
     ```
     And how it finally looks:
     ```docker
-    version: '2'
+    version: "3.7"
     
     services:
       webserver:
@@ -48,7 +48,6 @@ _See the appropriate guide for more!_
         ports:
           - "80:80"
           - "443:443"
-        mem_limit: 4096m
         restart: always
     ```
 
