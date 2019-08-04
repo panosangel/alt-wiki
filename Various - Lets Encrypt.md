@@ -21,6 +21,8 @@ sudo certbot certonly \
   --agree-tos \
   --no-eff-email
 ```
+If you are **re-newing** a certificate add `--force-renewal` to the command above. Please read more in the Certbot Manual [Re-creating and Updating Existing Certificates](https://certbot.eff.org/docs/using.html#re-creating-and-updating-existing-certificates)
+
 Then we list all the domains we want to secure with the certificate. Manual DNS mode allows for **wildcard** domains as well.
 ```
 *.mydomain.com
