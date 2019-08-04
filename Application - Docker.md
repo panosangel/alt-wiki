@@ -8,7 +8,7 @@
 
 ## Add managing users
 ```bash
-sudo usermode -aG docker <my-local-username>
+sudo usermod -aG docker <my-local-username>
 ```
 
 ## Test docker
