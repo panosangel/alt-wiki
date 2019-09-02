@@ -67,7 +67,7 @@ Add the following at the end of the file
 UUID=1acb96a3-33f3-4ec8-808e-9566c6794e36    /mnt/parity1   ext4  defaults 0 0
 UUID=4bf67ef2-8196-45b7-9f32-11ad2c656ba4    /mnt/disk1     ext4  defaults 0 0
 UUID=71c291ce-c124-466c-a09d-c7c413c61081    /mnt/disk2     ext4  defaults 0 0
-/mnt/disk*                                   /mnt/storage   fuse.mergerfs defaults,direct_io,allow_other,use_ino,minfreespace=200G,fsname=mergerfs 0 0
+/mnt/disk*                                   /mnt/storage   fuse.mergerfs defaults,allow_other,use_ino,minfreespace=200G,fsname=mergerfs 0 0
 ```
 Save and run the following commands:
 ```bash
