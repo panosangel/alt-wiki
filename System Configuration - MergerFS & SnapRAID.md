@@ -24,9 +24,9 @@ sudo tune2fs -m 1 /dev/sdd1
 
 ##  MergerFS installation
 Find the latest stable release from the [Official Source](https://github.com/trapexit/mergerfs/releases). 
-Currentrly this version is `2.25.1` so download and install at once:
+Currently this version is `2.25.1` so download and install at once:
 ```bash
-wget https://github.com/trapexit/mergerfs/releases/download/2.25.1/mergerfs_2.25.1.ubuntu-bionic_amd64.deb && sudo dpkg -i mergerfs*.deb
+wget https://github.com/trapexit/mergerfs/releases/download/2.28.1/mergerfs_2.85.1.ubuntu-bionic_amd64.deb && sudo dpkg -i mergerfs*.deb
 ```
 If not present, `fuse` needs to be installed:
 ```bash
