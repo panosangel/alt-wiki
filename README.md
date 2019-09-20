@@ -36,4 +36,6 @@ Guides and personal documentation for popular system services and applications
 - Nginx
 
 ## Various
+- Git
+- Git-Flow
 - Let's Encrypt
