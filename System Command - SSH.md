@@ -1,7 +1,6 @@
 # System Commands - SSH
 
 ## Create keypair 
-```
 RSA 4096bit key with comment:
 ```bash
 ssh-keygen -t rsa -b 4096 -C "your_email@example.com" -f outputfile
