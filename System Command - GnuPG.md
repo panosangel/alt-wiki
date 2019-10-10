@@ -18,29 +18,38 @@ gpg --full-generate-key
 Choose: 
 - RSA and RSA (default)
 - 4096bit size
-- Valid 5y
+- Valid 1y
 
-## List private keys
+## Manage Private Keys
+
+**List private keys**
 ```bash
 gpg --list-secret-keys --keyid-format LONG
 ```
 
-## Import/export private key
-Export:
+**Export private key**
 ```bash
 gpg --output mygpgkey_sec.asc --armor --export-secret-key <gpg_key_id>
 ```
-Import:
+
+**Import private key**
 ```bash
 gpg --allow-secret-key-import --import ~/mygpgkey_sec.gpg
 ```
 
-## Import/export public key
-Export:
+## Manage Public Keys
+
+**List public keys**
 ```bash
-gpg --output mygpgkey_pub.asc --armor --export <gpg_key_id>
+gpg --list-keys --keyid-format LONG
 ```
-Import:
+
+**Export public key**
+```bash
+gpg --output mygpgkey_pub.asc --armor --export <gpg_pubkey_id>
+```
+
+**Import public key**
 ```bash
 gpg --import ~/mygpgkey_pub.gpg
 ```
