@@ -63,3 +63,16 @@ gpg --armor -r <recipients_email> -e <file_to_encrypt>
 ```bash
 gpg -o <output_filename> -d <file_to_decrypt>
 ```
+
+## Change pubkey expiration date
+Read at: [How to change the expiration date of a GPG key](https://www.g-loaded.eu/2010/11/01/change-expiration-date-gpg-key/)
+
+## Submit the public key online
+```bash
+gpg --keyserver pgp.mit.edu --send-keys <gpg_pubkey_id>
+```
+
+## Search for a public key online
+```bash
+gpg --keyserver pgp.mit.edu --search <email>
+```
