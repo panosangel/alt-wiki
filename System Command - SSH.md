@@ -88,6 +88,11 @@ Host <ALIAS-NAME>
     User <USERNAME>
 ```
 
+## Mount remote folder
+```bash
+sshfs -o IdentityFile=<private_key_path> -o port=<port_number> <username>@<hostname>:<remote_mount_path> <local_mount_path>
+```
+
 ## Popup notifications (not tested)
 ```bash
 sudo apt-get install libnotify-bin
