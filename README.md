@@ -9,33 +9,35 @@ Guides and personal documentation for popular system services and applications
 - Disk Management
 - MergerFS & SnapRAID
 - Networking
-- Swap
-- Users & Filesystem Layout
-
-## System Services
-- Samba
-- SSH
-
-## System Security
-- fail2ban
 - Root Account Hardening
+- Swap
 - UFW
-
-## System Commands
-- SSH
-- GnuPG
-- Manage Git Accounts
+- Users & Filesystem Layout
 
 ## System Maintenance
 - Disk Health
 
-## Applications
+## Services
 - Deluge
 - Docker
+- fail2ban
 - Gitea
 - Nginx
+- Samba
+- SSH
 
-## Various
+## Security
+- TODO
+
+## Commands
 - Git
 - Git-Flow
+- SSH
+- GnuPG
+
+## Applications
+- TODO
+
+## Various
 - Let's Encrypt
+- Manage Git Accounts
