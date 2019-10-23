@@ -1,4 +1,4 @@
-# Application - Gitea
+# Service - Gitea
 
 ## Prerequisites
 Using the power of `Docker` we can install `Gitea` in a moment or two ;)

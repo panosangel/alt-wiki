@@ -1,4 +1,4 @@
-# Application - Deluge (headless)
+# Service - Deluge (headless)
 
 ## Prerequisites
 Using the power of `Docker` we can install `Deluge` in a moment!
