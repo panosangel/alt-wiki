@@ -80,6 +80,18 @@ git push <remote-name> --delete <branch-name>
 git remote prune origin
 ```
 
+---
+
+## Tips & Tricks
+
+### Merge develop to master
+```bash
+(on branch development)$ git merge master
+git checkout master
+git merge --no-ff develop
+```
+[Source](https://stackoverflow.com/a/14168817)
+
 ## Appendix A - Sources:
 - [gitready - list remote branches](http://gitready.com/intermediate/2009/02/13/list-remote-branches.html)
 - [Git Branching - Basic Branching and Merging](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
