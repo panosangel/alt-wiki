@@ -23,6 +23,7 @@ Guides and personal documentation for popular system services and applications
 - fail2ban
 - Gitea
 - Nginx
+- Postgres
 - Samba
 - SSH
 
@@ -41,3 +42,4 @@ Guides and personal documentation for popular system services and applications
 ## Various
 - Let's Encrypt
 - Manage Git Accounts
+- Postgres Database Management
