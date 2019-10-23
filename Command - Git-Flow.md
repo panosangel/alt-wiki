@@ -1,4 +1,4 @@
-# Various - Git-Flow
+# Command - Git-Flow
 
 ## Installation
 - Debian/Ubuntu:

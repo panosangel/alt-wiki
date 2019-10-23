@@ -1,4 +1,4 @@
-# System Command - Manage Git Accounts
+# Various - Manage Git Accounts
 
 ## Set global configuration
 ```bash

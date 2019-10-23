@@ -1,4 +1,4 @@
-# Application - Nginx
+# Service - Nginx
 
 ## Prerequisites
 Using the power of `Docker` we can install `Deluge` in a moment!
