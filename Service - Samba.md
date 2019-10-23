@@ -1,4 +1,4 @@
-# System Service - Samba
+## Service - Samba
 
 ## Install Samba
 ```bash
