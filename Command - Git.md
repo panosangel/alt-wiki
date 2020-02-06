@@ -21,6 +21,20 @@ git fetch --all --prune
 
 ## Branching
 
+### Show local branches only
+```bash
+git branch
+```
+or
+```bash
+git branch -l
+```
+
+### Show remote branches only
+```bash
+git branch -r
+```
+
 ### Show all local and remote branches
 ```bash
 git branch -a 
@@ -58,7 +72,6 @@ If you are on a different branch:
 ```bash
 git branch -m <old-branch-name> <new-branch-name>
 ```
-
 
 ### Delete a local branch
 In order to delete a _merged_ branch we run:
