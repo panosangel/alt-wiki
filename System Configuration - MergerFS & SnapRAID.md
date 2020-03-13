@@ -113,14 +113,13 @@ Add/edit the following lines. Be aware that these changes are based on the curre
 ```
 parity /mnt/parity1/snapraid.parity
 
-content /var/snapraid.content
-content /mnt/disk1/.snapraid.content
-content /mnt/disk2/.snapraid.content
+content /var/snapraid/snapraid.content
+content /mnt/disk1/snapraid.content
+content /mnt/disk2/snapraid.content
 
 data d1 /mnt/disk1/
 data d2 /mnt/disk2/
 
-# To DO: Verify
 exclude *.unrecoverable
 exclude /tmp/
 exclude /lost+found/
