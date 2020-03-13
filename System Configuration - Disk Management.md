@@ -41,7 +41,7 @@ sudo mkfs.ext4 /dev/sdb1
 ```
 
 ## Modify Reserved Space (Optional)
-When formatting the drive as ext23/ext34, 5% of the drive's total space is reserved for the super-user (root) so that the operating system can still write to the disk even if it is full. However, for disks that only contain data, this is not necessary.
+When formatting the drive as ext3/ext4, 5% of the drive's total space is reserved for the super-user (root) so that the operating system can still write to the disk even if it is full. However, for disks that only contain data, this is not necessary.
 
 **Note:** You may run this command on a fat32 file system, but it will do nothing; therefore, I highly recommend not running it.
 
