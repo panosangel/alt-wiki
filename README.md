@@ -37,7 +37,7 @@ Guides and personal documentation for popular system services and applications
 - GnuPG
 
 ## Applications
-- TODO
+- VS Code
 
 ## Various
 - Let's Encrypt
