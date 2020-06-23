@@ -58,9 +58,9 @@ tmpfs    /tmp  tmpfs   nodev,nosuid,size=2G 0 0
 ```
 
 ## Set unattended upgrades
-Depending on version you may have one or other or both of `/etc/apt/apt.conf.d/10periodic` or `/etc/apt/apt.conf.d/20auto-upgrades`.
+Depending on a version you may have one or other or both of `/etc/apt/apt.conf.d/10periodic` or `/etc/apt/apt.conf.d/20auto-upgrades`.
 
-Not modifying the original will stop getting nags about overwriting the package maintainers version on upgrade of the unattended-upgrade package !!
+Not modifying the original will stop getting nags about overwriting the packages' maintainers version on upgrade of the unattended-upgrade package !!
 
 Create `/etc/apt/apt.conf.d/21periodic-auto-upgrades_on` which will supersede either `/etc/apt/apt.conf.d/10periodic or /etc/apt/apt.conf.d/20auto-upgrades`
 ```
@@ -74,7 +74,7 @@ APT::Periodic::Verbose "2";
 Source: 
 - [Ubuntu 18.04  Server Guide - Package Management - Automatic Updates](https://help.ubuntu.com/lts/serverguide/automatic-updates.html.en)
 - [Ubuntu Enable Automatic Updates Unattended Upgrades](https://www.richud.com/wiki/Ubuntu_Enable_Automatic_Updates_Unattended_Upgrades#50unattended-upgrades)
-
+- [Cerebrux - Τα πρώτα 10 λεπτά σε έναν νέο Server: Βασικές ρυθμίσεις ασφαλείας](https://cerebrux.net/2016/06/15/10-lepta-server-vasiki-asfaleia/)
 ## Nice additions
 - [Ubuntu Logo in color ASCII art](https://ubuntuforums.org/showthread.php?t=2385550)
     
