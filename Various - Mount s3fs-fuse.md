@@ -46,3 +46,4 @@ s3fs#[bucket_name] /mount-point fuse _netdev,allow_other,use_path_request_style,
 
 ## Appendix B - Related Tools
 - [How to use Object Storage with s3cmd](https://www.scaleway.com/en/docs/object-storage-with-s3cmd/)
+- [A Guide on How to Mount Amazon S3 as a Drive for Cloud File Sharing](https://www.nakivo.com/blog/mount-amazon-s3-as-a-drive-how-to-guide/)
