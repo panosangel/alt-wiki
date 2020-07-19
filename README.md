@@ -42,4 +42,5 @@ Guides and personal documentation for popular system services and applications
 ## Various
 - Let's Encrypt
 - Manage Git Accounts
+- Mount s3fs-fuse
 - Postgres Database Management
