@@ -24,9 +24,9 @@ sudo tune2fs -m 1 /dev/sdd1
 
 ##  MergerFS installation
 Find the latest stable release from the [Official Source](https://github.com/trapexit/mergerfs/releases). 
-Currently this version is `2.25.1` so download and install at once:
+Currently, this version is `2.25.1` so download and install at once:
 ```bash
-wget https://github.com/trapexit/mergerfs/releases/download/2.28.1/mergerfs_2.85.1.ubuntu-bionic_amd64.deb && sudo dpkg -i mergerfs*.deb
+wget https://github.com/trapexit/mergerfs/releases/download/2.30.0/mergerfs_2.30.0.ubuntu-focal_amd64.deb && sudo dpkg -i mergerfs*.deb
 ```
 If not present, `fuse` needs to be installed:
 ```bash
@@ -83,7 +83,7 @@ df -Th
 ```
 
 ## Installing SnapRAID
-In Ubuntu we have two options for installing SnapRAID.
+In Ubuntu, we have two options for installing SnapRAID.
 From PPA:
 ```bash
 sudo add-apt-repository ppa:tikhonov/snapraid && sudo apt-get update
@@ -91,9 +91,9 @@ sudo apt-get install snapraid
 ```
 or from sources (preferably) and the following script:
 ```bash
-wget https://github.com/amadvance/snapraid/releases/download/v11.3/snapraid-11.3.tar.gz
-tar xzvf snapraid-11.3.tar.gz
-cd snapraid-11.3/
+wget https://github.com/amadvance/snapraid/releases/download/v11.5/snapraid-11.5.tar.gz
+tar xzvf snapraid-11.5.tar.gz
+cd snapraid-11.5/
 ./configure
 make
 make check
@@ -103,13 +103,20 @@ Verify that SnapRAID is installed:
 ```bash
 snapraid -V
 ```
+In case you build the program in another system you need to run the following in the _target_ system:
+```bash
+/usr/bin/mkdir -p '/usr/local/bin'
+/usr/bin/install -c snapraid '/usr/local/bin'
+/usr/bin/mkdir -p '/usr/local/share/man/man1'
+/usr/bin/install -c -m 644 snapraid.1 '/usr/local/share/man/man1'
+```
 
 ## Configuring SnapRAID
 Edit the configuration file:
 ```bash
 sudo nano /etc/snapraid.conf
 ```
-Add/edit the following lines. Be aware that these changes are based on the current example:
+Add/edit the following lines. Be aware these changes are based on the current example:
 ```
 parity /mnt/parity1/snapraid.parity
 
@@ -169,7 +176,7 @@ Add an entry using `crontab`:
 sudo crontab -e
 ```
 ```
-00 02 * * * python2 /opt/snapraid-runner/snapraid-runner.py -c /opt/snapraid-runner/snapraid-runner.conf
+0 3 * * * python2 /opt/snapraid-runner/snapraid-runner.py -c /opt/snapraid-runner/snapraid-runner.conf
 ```
 
 ## Appendix A - Sources
