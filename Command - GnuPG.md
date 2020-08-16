@@ -65,14 +65,22 @@ gpg -o <output_filename> -d <file_to_decrypt>
 ```
 
 ## Change pubkey expiration date
-Read at: [How to change the expiration date of a GPG key](https://www.g-loaded.eu/2010/11/01/change-expiration-date-gpg-key/)
+Read #1: [How to change the expiration date of a GPG key](https://www.g-loaded.eu/2010/11/01/change-expiration-date-gpg-key/)
+Read #2: [Github - krisleech/renew-gpgkey.md](https://gist.github.com/krisleech/760213ed287ea9da85521c7c9aac1df0)
 
 ## Submit the public key online
 ```bash
-gpg --keyserver pgp.mit.edu --send-keys <gpg_pubkey_id>
+gpg --export <email> | curl -T - https://keys.openpgp.org
 ```
 
 ## Search for a public key online
 ```bash
-gpg --keyserver pgp.mit.edu --search <email>
+gpg --keyserver hkps://keys.openpgp.org --recv-keys <gpg_pubkey_id>
 ```
+and/or
+```bash
+gpg --auto-key-locate keyserver --locate-keys <email>
+```
+
+## Appendix A - Sources
+- [keys.openpgp.org - Usage](https://keys.openpgp.org/about/usage)
