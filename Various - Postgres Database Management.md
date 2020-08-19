@@ -5,7 +5,7 @@ List all dbs:
 ```
 \l
 ```
-List all relations:
+List tables, views, and sequences:
 ```
 \d
 ```
@@ -51,7 +51,11 @@ List all tables:
 ```
 \dt
 ```
-Delete table:
+Create a table
+```sql
+CREATE TABLE IF NOT EXISTS dbtable (...);
+```
+Delete a table:
 ```sql
 DROP TABLE dbtable;
 ```
