@@ -35,6 +35,7 @@ Guides and personal documentation for popular system services and applications
 - Git-Flow
 - SSH
 - GnuPG
+- Rsync
 
 ## Applications
 - VS Code
