@@ -41,6 +41,7 @@ Guides and personal documentation for popular system services and applications
 - VS Code
 
 ## Various
+- Encrypt Data Disk
 - Let's Encrypt
 - Manage Git Accounts
 - Mount s3fs-fuse
