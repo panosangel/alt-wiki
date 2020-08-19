@@ -1,4 +1,4 @@
-# System Configuration - Disk Management
+# System - Disk Management
 
 ## Disk Devices
 List available disk devices with names and uuids:

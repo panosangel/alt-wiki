@@ -1,4 +1,4 @@
-# System Configuration - Users & Filesystem Layout
+# System - Users & Filesystem Layout
 
 ## Strategy
 - One user per person

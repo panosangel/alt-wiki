@@ -1,4 +1,4 @@
-# System Configuration - MergerFS & SnapRAID
+# System - MergerFS & SnapRAID
 
 ## Disk Devices
 List available disk devices.
