@@ -163,7 +163,29 @@ sudo cryptsetup --header <file> luksOpen <target_device> /dev/mapper/<NameOfYour
 More: [6. Backup and Data Recovery](https://gitlab.com/cryptsetup/cryptsetup/-/wikis/FrequentlyAskedQuestions#6-backup-and-data-recovery)
 
 ## Manage keys
-@TODO
+LUKS containers can actually have multiple passphrases or key files associated with them, up to eight (LUKS1) or thirty-two (LUKS2).
+To start, take a look at your drive and see how many keys it has. Chances are, you’ll only see key slot 0 occupied. That’s the first one.
+```shell script
+sudo cryptsetup luksDump <target_device> | grep -i key
+```
+Add a key:
+```shell script
+sudo cryptsetup luksAddKey <target_device>
+```
+Change a key:
+```shell script
+cryptsetup luksChangeKey <target_device>
+```
+Note: `--key-slot`, `-S` `<target_key_slot_number>` can be used to target a specific slot.  
+
+Delete the key of a specific slot:
+```shell script
+sudo cryptsetup luksKillSlot <target_device> <target_key_slot_number>
+```
+Delete the key matched the one to be provided:
+```shell script
+sudo cryptsetup luksRemoveKey <target_device>
+```
 
 ## Appendix A - Sources
 - [wikibooks - Cryptsetup](https://en.wikibooks.org/wiki/Cryptsetup)
@@ -172,6 +194,8 @@ More: [6. Backup and Data Recovery](https://gitlab.com/cryptsetup/cryptsetup/-/w
 - [makeuseof - How to Encrypt Your Personal Data on Linux](https://www.makeuseof.com/tag/encrypt-personal-data-linux/)
 - [Debian Buster Manpages](https://manpages.debian.org/buster/cryptsetup-bin/cryptsetup.8.en.html)
 - [gentoo linux - Dm-crypt full disk encryption](https://wiki.gentoo.org/wiki/Dm-crypt_full_disk_encryption)
+- [AskUbuntu - How to change LUKS passphrase?](https://askubuntu.com/questions/95137/how-to-change-luks-passphrase)
+- [Make Tech Easier - How to Change Your LUKS Encryption Passphrase](https://www.maketecheasier.com/change-luks-encryption-passphrase/)
 
 ## Appendix B - More
 - [Archlinux - dm-crypt/Device encryption](https://wiki.archlinux.org/index.php/Dm-crypt/Device_encryption)
