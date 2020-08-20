@@ -27,21 +27,21 @@ sudo fdisk -l
 **(OPTIONAL)**  If you have data stored on the hard drive to begin with, and if **the drive is a traditional spindle drive**, shred it first.  
 To just quickly wipe file systems (old data may remain):
 ```shell script
-wipefs -a <target device>
+wipefs -a <target_device>
 ```
 OR  
 
 **(OPTIONAL)** For a 2TB disk, expect even the simplest form of shredding to last 8-12 hours depending on your hardware.
 ```shell script
-sudo shred --verbose --random-source=/dev/urandom --iterations=1 /dev/<device_name>
+sudo shred --verbose --random-source=/dev/urandom --iterations=1 /dev/<target_device>
 ```
 With a fresh drive, wipe existing partitions and start over with a single new primary partition:
 ```shell script
-sudo fdisk /dev/<device_name>
+sudo fdisk /dev/<target_device>
 ```
 Then create EXT4 filesystem:
 ```shell script
-sudo mkfs.ext4 /dev/<partition_name>
+sudo mkfs.ext4 /dev/<target_device>
 ```
 Take a note of your UUID, as you'll use it for mounting the encrypted volume later on. You can use blkid to find it:
 ```shell script
@@ -51,18 +51,18 @@ Note: You can create the LUKS container directly into a disk (i.e. /dev/sdb) ins
 
 ## Configure encrypted volume
 ```shell script
-sudo cryptsetup --verbose --verify-passphrase luksFormat /dev/<partition_name>
+sudo cryptsetup --verbose --verify-passphrase luksFormat /dev/<target_device>
 ```
 Or the more advanced
 ```shell script
 sudo cryptsetup --verbose \
                 --type luks2 \
                 --hash sha512 --iter-time 5000 --use-random \
-                luksFormat /dev/<partition_name>
+                luksFormat /dev/<target_device>
 ```
 This will create a mapper that identifies your encrypted volume (really a dm-crypt target); it will be named "NameOfYourChoice".
 ```shell script
-sudo cryptsetup luksOpen /dev/<partition_name> <NameOfYourChoice>
+sudo cryptsetup luksOpen /dev/<target_device> <NameOfYourChoice>
 ```
 You can see a mapping name /dev/mapper/<NameOfYourChoice> after successful verification of the supplied key material which was created with luksFormat command extension:
 ```shell script
@@ -113,7 +113,7 @@ sudo cryptsetup luksClose <NameOfYourChoice>
 
 ## Mount or remount encrypted partition
 ```shell script
-sudo cryptsetup luksOpen /dev/<partition_name> <NameOfYourChoice>
+sudo cryptsetup luksOpen /dev/<target_device> <NameOfYourChoice>
 sudo mount /dev/mapper/<NameOfYourChoice> /media/<AnotherNameOfYourChoice>
 sudo df -H
 sudo mount
@@ -127,7 +127,7 @@ sudo chmod 400 /root/my-keyfile
 ```
 Add the key file to encrypted partition:
 ```shell script
-sudo cryptsetup luksAddKey /dev/<partition_name> /root/my-keyfile
+sudo cryptsetup luksAddKey /dev/<target_device> /root/my-keyfile
 ```
 Now, tell the system that you have an encrypted volume, how to find it and how to open the secure volume with a key file:
 ```shell script
@@ -149,16 +149,16 @@ sudo systemctl daemon-reload
 ## Backup and restore
 Backup:
 ```shell script
-sudo cryptsetup luksHeaderBackup --header-backup-file <file> <device>
+sudo cryptsetup luksHeaderBackup --header-backup-file <file> <target_device>
 ```
 Restore:
 ```shell script
-sudo cryptsetup luksHeaderRestore --header-backup-file <file> <device>
+sudo cryptsetup luksHeaderRestore --header-backup-file <file> <target_device>
 ```
 If you are unsure about a header to be restored, make a backup of the current one first! 
 You can also test the header-file without restoring it by using the --header option for a detached header like this:
 ```shell script
-sudo cryptsetup --header <file> luksOpen <device> /dev/mapper/<NameOfYourChoice
+sudo cryptsetup --header <file> luksOpen <target_device> /dev/mapper/<NameOfYourChoice
 ```
 More: [6. Backup and Data Recovery](https://gitlab.com/cryptsetup/cryptsetup/-/wikis/FrequentlyAskedQuestions#6-backup-and-data-recovery)
 
