@@ -102,8 +102,9 @@ sudo systemctl disable systemd-resolved
 ```
 
 ## 5. Benchmarking LAN
-
-[How do you test the network speed between two boxes?](https://askubuntu.com/questions/7976/how-do-you-test-the-network-speed-between-two-boxes)
+- [Linux – Determine / Find Ethernet Connection Speed](https://www.cyberciti.biz/faq/howto-determine-ethernet-connection-speed/)  
+- [How to test the network speed/throughput between two Linux servers](https://www.cyberciti.biz/faq/how-to-test-the-network-speedthroughput-between-two-linux-servers/)  
+- [How do you test the network speed between two boxes?](https://askubuntu.com/questions/7976/how-do-you-test-the-network-speed-between-two-boxes)  
 
 ## Appendix A - Interesting reads
 [Ubuntu 18.04 Server Guide - Networking](https://help.ubuntu.com/lts/serverguide/networking.html.en) 
