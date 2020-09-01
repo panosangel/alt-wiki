@@ -42,3 +42,4 @@ Guides and personal documentation for popular system services and applications
 - Manage Git Accounts
 - Mount s3fs-fuse
 - Postgres Database Management
+- Zsh & Oh-My-Zsh
