@@ -121,4 +121,4 @@ sudo systemctl disable systemd-resolved
 - Cloudflare: 1.1.1.1, 1.0.0.1
 - Google: 8.8.8.8, 8.8.4.4
 - Quad9: 9.9.9.9, 149.112.112.112
-
+- [GRnet](https://grnet.gr/services/cloud-services/%CF%85%CF%80%CE%B7%CF%81%CE%B5%CF%83%CE%AF%CE%B1-dns/):  62.217.126.164, 194.177.210.210
