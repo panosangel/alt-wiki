@@ -37,6 +37,7 @@ Guides and personal documentation for popular system services and applications
 - VS Code
 
 ## Various
+- CD Ripping
 - Encrypt Data Disk
 - Let's Encrypt
 - Manage Git Accounts
