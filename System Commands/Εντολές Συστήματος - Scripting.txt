@@ -1,0 +1,64 @@
+
+
+## Single vs Double Quotes ##
+# Single quotes DON'T expand variables
+
+
+## Print on the screen ##
+
+# Avoid auto newline & accept escape sequences in double-quoted strings as an argument
+echo -e
+
+# Printing a colored output
+# reset = 0, black = 30, red = 31, green = 32, yellow = 33, blue = 34, magenta = 35, cyan = 36, and white = 37
+# Here, \e[1;31m is the escape string that sets the color to red and \e[0m resets the color back.
+echo -e "\e[1;31m This is red text \e[0m"
+
+## Enviroment Variables ##
+
+# View all the environment variables related to a terminal.
+env
+
+# For every process, environment variables in its runtime can be viewed by:
+cat /proc/$PID/environ
+
+# Name=value pair and are separated by a null character ( \0 ).
+cat /proc/$PID/environ | tr '\0' '\n'
+
+# Assignment of value to variable var
+var="value"
+# Caution: This is equality.
+var = "value"
+
+# Print variables value
+echo $var
+or
+echo ${var}
+
+# Set environment variables
+HTTP_PROXY="127.0.0.1:9090"
+export HTTP_PROXY
+
+# PATH - Show and Manipulate
+# Usually, $PATH is defined in /etc/environment or /etc/profile or ~/.bashrc .
+echo $PATH
+#
+export PATH="$PATH:/home/user/bin"
+or
+PATH="$PATH:/home/user/bin"
+export PATH
+
+# Identifying the current shell
+echo $SHELL
+or
+echo $0
+
+
+
+## Strings ##
+
+# Finding the length of a string
+var=12345678901234567890$
+echo ${#var}
+
+

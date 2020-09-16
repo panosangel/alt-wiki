@@ -1,0 +1,291 @@
+# System Commands - General
+
+## Hardware
+### Full report
+```bash
+inxi -Fxzr
+```
+and
+```bash
+lshw
+```
+### CPU info
+```bash
+lscpu
+```
+or
+```bash
+cat /proc/cpuinfo
+```
+### GPU info
+```bash
+inxi -Gx
+```
+### PCI devices info
+```bash
+lspci
+```
+### USB devices info
+```bash
+lsusb
+```
+
+
+## Distribution
+### Kernel version
+```bash
+uname -r
+```
+### Distribution name & version
+```bash
+lsb_release -a
+```
+
+## Time
+### Timedate
+```bash
+date
+```
+### Calendar
+```bash
+cal
+```
+### Uptime
+```bash
+uptime
+```
+
+## User session
+### Current username
+```bash
+whoami
+```
+### Last logged in user
+```bash
+last
+```
+### Last logged in users
+```bash
+lastlog
+```
+### Session info
+One liner:
+```bash
+who
+```
+Detailed:
+```bash
+w
+```
+
+## Modules
+### List all available modules
+```bash
+modprobe -l
+```
+### List loaded modules
+```bash
+lsmod
+```
+### Load a module
+```bash
+modprobe <module_name>
+```
+### Unload a module
+```bash
+modprobe -r <module_name>
+```
+or
+```bash
+rmmod <module_name>
+```
+### Parameters list
+```bash
+modinfo -p <module_name>
+```
+or
+```bash
+modinfo <module_name> | grep ^parm
+```
+### Parameter's value
+```bash
+sudo cat /sys/module/module_name/parameters/parameter_name
+```
+
+## Commands
+### Command Location and Documentation
+```bash
+info <command>
+```
+or
+```bash
+man <command>
+```
+### Display one-line manual page descriptions
+```bash
+whatis <command>
+```
+### Locate a command
+```bash
+which <command>
+```
+### Locate the binary, source and man page of a command
+```bash
+whereis <command>
+```
+### Execute a command at a particular time
+```bash
+echo "ls -als /etc" | at 15.04
+```
+
+## Processes
+### List
+```bash
+ps aux
+```
+### App PID
+```bash
+pidof <program_name>
+```
+i.e: `pidof firefox`
+or
+```bash
+pgrep program_name
+```
+### Background
+- Send to background: `CTL-Z`
+- List background processes: `bg`
+- Bring a process to foreground: `fg`
+- List:  `jobs`
+
+## Aliases
+### Show all
+```bash
+alias
+```
+### Reveal command alias
+```bash
+type <alias_name>
+```
+### BASH only - Turn alias into actual command
+Type alias (i.e. als) and then CTR-ALT-E
+
+## Tips & Tricks
+### Webserver
+```bash
+python -m SimpleHTTPServer 8080
+```
+### Random number generator
+```bash
+echo $(shuf -n 6 -i 1-100 | sort -n)
+```
+### Generate passwords in the command line
+```bash
+apg -m 25 -a 1 -n 1
+```
+Needs package `pwgen`:
+```bash
+pwgen -s 25 1
+```
+### Find big file/folders in the system
+```bash
+find . -size +100000k -exec du -h {} \;
+```
+### Show system startup time spent in processes
+```bash
+sudo systemd-analyze --no-pager blame | head -n 15
+```
+### List all system users' cronjobs
+```bash
+for user in $(cut -f1 -d: /etc/passwd); do echo $user; sudo crontab -u $user -l; done
+```
+### Edit Cinnamon menu
+```bash
+cinnamon-menu-editor &
+```
+
+
+
+
+
+
+---
+
+
+
+
+
+
+
+
+
+# Chromium Anonymous
+# http://deltahacker.gr/actsubs-friendly-ssh-p1/
+chromium-browser --proxy-server="socks5://localhost:9090" --host-resolver-rules="MAP * 0.0.0.0, EXCLUDE localhost" &
+
+# SSH session Utils
+# http://krenel.org/about-ssh-and-long-long-running-processes.html
+# http://superuser.com/questions/236158/tmux-vs-screen
+reptyr
+tmux
+screen
+
+# tmux
+# http://www.sitepoint.com/tmux-a-simple-start/
+Hotkeys:
+CTRL+B %    Split horizontally
+CTRL+B "    Split vertically
+CTRL+B Arr  Move around with arrows
+CTRL+B z    Full screen
+CTRL+B c    New window
+CTRL+B d    Detached
+Commands:
+tmux ls                 Show sessions
+tmux attach -t 0        Attach session num 0
+tmux kill-session -t 0  Kill session num 0
+
+
+# grep
+# http://www.tecmint.com/12-practical-examples-of-linux-grep-command/
+# -i: case insensitive, -v: invert output, -A/B/C: Display number of lines after/before/either string, -c: count number of matches, -n: displays the line number in the file, -r: Search a string Recursively in all Directories, –w: Only pattern
+dpkg –l | grep –i python
+grep –v “#”  /etc/apache2/sites-available/default-ssl
+ifconfig | grep –C 2 lo
+ifconfig | grep –c inet6
+grep –r “function” *
+zgrep –i error /var/log/syslog.2.gz
+fgrep –f file_full_of_patterns.txt file_to_search.txt
+
+# script
+# record a user login session in a file
+script my-session-record.txt
+
+
+
+
+
+
+
+
+
+
+### Command line history
+TODO
+- CTRL+A: start, 
+- CTRL+E: end, 
+- CTRL+R: search history
+
+
+
+
+
+
+
+## Appendix A - Sources
+### Modules
+- https://help.ubuntu.com/community/Loadable_Modules
+- http://linuxg.net/how-to-load-and-remove-kernel-modules-on-linux-systems/
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMjE4MjA3NTIzLDEzMDQ2NTc1NzQsLTEzOD
+A1NjM5OTAsLTE4MjUyNjYyNTZdfQ==
+-->

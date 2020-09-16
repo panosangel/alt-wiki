@@ -1,0 +1,48 @@
+From luckybackup: rsync -h --progress --stats -r -t --modify-window=1 -l -D --update --delete-after --delete-excluded --exclude=**/*cache*/ --exclude=**/*Cache*/ --exclude=**/lost+found*/ --exclude=**/*Trash*/ --exclude=**/*trash*/ --exclude=**/.gvfs/ --exclude=/.config/enchant/ /home/mintmaster/ /media/mintmaster/CDE/mintmaster/
+
+Basic: rsync FLAGS/OPTIONS SRC DEST
+
+Most useful parameters:
+
+-a, --archive : archive mode; equals -rlptgoD
+
+-r, --recursive : recurse into directories
+-l, --links : copy symlinks as symlinks
+-p, --perms : preserve permissions
+-t, --times : preserve modification times
+-g, --group : preserve group
+-o, --owner : preserve owner (super-user only)
+-D             : same as --devices --specials
+    --devices : preserve device files (super-user only)
+    --specials : preserve special files
+
+-z, --compress : compress file data during the transfer
+-c, --checksum : skip based on checksum, not mod-time & size
+-n, --dry-run : perform a trial run with no changes made
+-v, --verbose : increase verbosity
+-h, --human-readable : output numbers in a human-readable format
+    --progress : show progress during transfer
+    --stats : give some file-transfer stats
+    --log-file=FILE : override the "log file" setting
+
+
+
+-W, --whole-file : copy files whole (without delta-xfer algorithm)
+-i, --itemize-changes : output a change-summary for all updates
+-u, --update : skip any files which exist on the destination and have a modified time that is newer than the source file.  
+               (If an existing destination file has a modification time equal to the source file’s, it will be updated if the sizes are different.)
+
+
+
+    --delete                delete extraneous files from destination dirs
+    --delete-before         receiver deletes before transfer, not during
+    --delete-during         receiver deletes during the transfer
+    --delete-delay          find deletions during, delete after
+    --delete-after          receiver deletes after transfer, not during
+    --delete-excluded       also delete excluded files from destination dirs
+
+
+# SOS Trailing slashes
+http://defindit.com/readme_files/rsync_backup.html
+
+rsync -n -c -azvh --itemize-changes --delete --stats --progress --log-file ~/.rsync/logs/rsync-`date +"%F_%H-%M"`.log --exclude-from ~/.rsync/exclude.txt /tmp/folder-src/ /tmp/folder-dest

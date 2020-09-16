@@ -1,0 +1,154 @@
+
+## Πληροφορίες για Δίκτυο ##
+
+# Κατάσταση Network manager
+  nmcli dev status
+
+# Εξωτερική IP
+  wget -qO- http://checkip.dyndns.org|cut -d\> -f7 |cut -d\< -f1
+
+# Παρακολούθηση φόρτου δικτύου/συστήματος
+  iftop
+
+# Look at current network setting
+  ifconfig
+  route
+
+
+
+## DNS ##
+
+# Where current DNS server info is stored
+  /etc/resolv.conf
+  
+# Look up IP address for DNS names
+  dig
+# Show entire flow of the query.
+# @dnsname: choose name server
+# http://www.slashroot.in/what-dns-zone-file-complete-tutorial-zone-file-and-its-contents
+  dig @dnsname +trace
+# nssearch: shows authotirative nameservers
+  dig +nssearch $HOSTNAME
+# ANY: Shown any record
+  dig $HOSTNAME ANY
+# ptr: Check PTR record
+  dig ptr $HOSTNAME
+# -x: reverse check
+  dig -x $IP
+
+## Εύρεση ανοιχτών πορτών ##
+
+# http://www.slashroot.in/netstat-command-examples-and-its-usage
+# -t/--tcp: tcp ports, -u udp, -p/--programs: user,pid, -n numeric / avoid dns lookups, -a all ports, -l/--listening: listen only ports
+  netstat -an | grep "LISTEN "
+  # List open ports - my_aliases.sh
+  netstat -tupna
+  # List listening ports - my_aliases.sh
+  netstat -tupnl
+  # Summery of all protocols with netstat
+  netstat -s
+  # Monitor all traffic continuesly live and actively with netstat.
+  netstat -c
+  # see ifconfig like information with netstat
+  netstat -ie
+  # Find number of connections made by ips
+  netstat -ntu | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort -n
+
+
+# Display current Internet usage of applications
+# http://www.unixmen.com/useful-command-lines-for-linux-users-episode5/
+  lsof -P -i -n
+
+
+## Traceroute ##
+
+  # http://www.slashroot.in/how-does-traceroute-work-and-examples-using-traceroute-command
+
+  # UDP packets
+  traceroute -n $IP
+  # ICMP
+  traceroute -I -n $IP
+  # TCP
+  tcptraceroute $IP
+
+## Number of Open Connections ##
+  ss -s
+
+## Packet Capturing with TCPDUMP ##
+
+  # http://www.slashroot.in/packet-capturing-tcpdump-command-linux
+  # -i: specify network adapter, -n: resolve ip addresses, -c: how many packets to be captured, -s[]: Default capture is 96 bytes and s0 is full packet, -e: include MACs of sender and receiver, -v[v[v]]: Increase verbosity, -S: will shown the abosolute tcp sequence numbers rather than relative with previous packets, -w: save file in .pcap format, -r: read the captured .pcap file, port: restrict output for specific port, host/src host/dst host: , tcp/udp/icmp/arp
+  tcpdump -i [eth0/lo/etc]
+  
+
+## CURL ##
+
+  # http://www.slashroot.in/curl-command-tutorial-linux-example-usage
+
+  # Show the entire HTTP content
+  curl example.com
+
+  # -o filename: Save the stream on a file (alternative to '>' for redirection to file)
+  curl -o filename.ext http://blahblah.tld/filename.ext
+
+  # -O: Downloading Multiple Files using single CURL command
+  
+  
+  # -L: redirect automatically to the new URL
+  curl -L google.com
+
+  # -v: See Complete Request And Response Headers with CURL
+  curl -v example.com
+
+  # -I: Show only Response Headers in CURL
+  curl -I example.com
+  
+  # -x: Use Proxy Server with CURL
+  curl -x http://proxyserver:proxyport --proxy-user user:password -L http://example.com
+  
+  # -k: Ignore SSL Certificate Error with CURL
+  curl -k https://10.1.136.101:4848
+  
+  # -A: Modify User Agent In HTTP request
+  curl -A "YOUR USER AGENT STRING GOES HEERE" http://example.com
+  
+  # --limit-rate: Download Rate Limit with Curl
+  curl --limit-rate 100k -O http://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.10.tar.gz
+  
+  # Using CURL for FTP download and Upload
+  # http://www.slashroot.in/curl-command-tutorial-linux-example-usage
+  
+  # Sending EMAIL's using CURL
+  # --mail-from: This field contains the from address that the receiver should see.
+  # --mail-rcpt: This field contains TO address
+  # --upload-file: The file provided here should contain your message as a content
+  # --user: SMTP user@domain:password
+  # --insecure option used is exactly same as using -k option we saw earlier, to ignore unknown SSL certificates. 
+  curl --url "smtps://smtp.example.com:465" --ssl-reqd   --mail-from "user@example.com" --mail-rcpt "friend@example.com"   --upload-file mailcontent.txt --user "user@example.com:password" --insecure
+ 
+  # Using CURL to send HTTP POST, PUT, DELETE requests
+  # If you use CURL to send request to a server without any request method option in the argument, it will by default use HTTP GET request.
+  # Sending POST request using CURL
+  # -X: send your required HTTP method to the server
+  # -u: is used to mention credentials to access that specific resource on the server
+  # -d:  indicates to send the content of specified file to the server
+  curl -X POST -u  admin:admin http://example.com/myconfigs/status -Hcontent-type:application/xml -d @/home/user/file.xml
+  # Sending PUT request is exactly same as the above, simply replace POST with PUT. If your web server does not accept these methods, you will get a 405 error as reply, means that the server does not accept the HTTP method on that specific URL
+  # You can also get HTTP unsupported Media Type error as reply, if the server does not accept application/xml format. The HTTP status code for unsupported media type is 415.
+  
+  # Sending Cookies to Server using CURL
+  # -b: use VALUE=DATA format or give a file name as parameter, so that curl can use cookie data from the file as input
+  curl -b mycookies.txt http://example.com
+  curl -b "name=value" http://example.com
+  # Save the cookies you get from the server to a file
+  # -c: Specify  to  which  file  you  want curl to write all cookies after a completed operation.
+  
+  # Sending Your own HTTP headers using CURL
+  # -H: Used to modify headers. You can modify any header of your wish.
+  curl -H "Accept: application/xml" -H "Content-Type: application/xml" http://example.com
+  
+  # Verifying SSL certificates using CURL
+  # --cacert: verify the certificate the server is replying with
+  curl --cacert my-ca.crt https://example.com
+  
+
