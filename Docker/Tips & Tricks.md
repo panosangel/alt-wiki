@@ -20,6 +20,6 @@ TODO
 ### Get access in a docker compose service
 Sometimes we want to run a couple of commands on-the-fly inside a service that has been initiated by docker compose.
 ```bash
-docker-compose exec <service-name> /bin/bash
+docker-compose exec -it <service-name> /bin/bash
 ```
 
