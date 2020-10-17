@@ -41,6 +41,7 @@ Guides and personal documentation for popular system services and applications
 - Encrypt Data Disk
 - Let's Encrypt
 - Manage Git Accounts
+- Mass Convert Picture Files
 - Mount s3fs-fuse
 - Postgres Database Management
 - Zsh & Oh-My-Zsh
