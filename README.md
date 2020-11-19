@@ -34,6 +34,7 @@ Guides and personal documentation for popular system services and applications
 - Rsync
 
 ## Applications
+- JetBrains WebStorm
 - VS Code
 
 ## Various
