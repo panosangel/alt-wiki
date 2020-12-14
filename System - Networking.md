@@ -107,14 +107,14 @@ sudo systemctl disable systemd-resolved
 - [How do you test the network speed between two boxes?](https://askubuntu.com/questions/7976/how-do-you-test-the-network-speed-between-two-boxes)  
 
 ## Appendix A - Interesting reads
-[Ubuntu 18.04 Server Guide - Networking](https://help.ubuntu.com/lts/serverguide/networking.html.en) 
-[Ubuntu Bionic: Netplan](https://blog.ubuntu.com/2017/12/01/ubuntu-bionic-netplan)
-[Network Name Resolution manager](https://www.freedesktop.org/software/systemd/man/systemd-resolved.service.html#/etc/resolv.conf)
-[How to take back control of /etc/resolv.conf on Linux](https://www.ctrl.blog/entry/resolvconf-tutorial)
-[Ubuntu 18.04: Network configuration](https://www.hiroom2.com/2018/05/29/ubuntu-1804-network-en/)
-[A name resolution issue with systemd-resolved we found in the wild](https://moss.sh/name-resolution-issue-systemd-resolved/)
-[My War on Systemd-resolved](https://ohthehugemanatee.org/blog/2018/01/25/my-war-on-systemd-resolved/)
-[Setup DNS Resolution With “resolv.conf” in Examples](https://www.shellhacks.com/setup-dns-resolution-resolvconf-example/)
+- [Ubuntu 18.04 Server Guide - Networking](https://help.ubuntu.com/lts/serverguide/networking.html.en)
+- [Ubuntu Bionic: Netplan](https://blog.ubuntu.com/2017/12/01/ubuntu-bionic-netplan)
+- [Network Name Resolution manager](https://www.freedesktop.org/software/systemd/man/systemd-resolved.service.html#/etc/resolv.conf)
+- [How to take back control of /etc/resolv.conf on Linux](https://www.ctrl.blog/entry/resolvconf-tutorial)
+- [Ubuntu 18.04: Network configuration](https://www.hiroom2.com/2018/05/29/ubuntu-1804-network-en/)
+- [A name resolution issue with systemd-resolved we found in the wild](https://moss.sh/name-resolution-issue-systemd-resolved/)
+- [My War on Systemd-resolved](https://ohthehugemanatee.org/blog/2018/01/25/my-war-on-systemd-resolved/)
+- [Setup DNS Resolution With “resolv.conf” in Examples](https://www.shellhacks.com/setup-dns-resolution-resolvconf-example/)
 
 ## Appendix B - Free DNS servers
 - OpenDNS: 208.67.222.222, 208.67.220.220
