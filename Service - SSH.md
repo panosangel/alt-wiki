@@ -3,8 +3,8 @@
 ## Create strong cryptographic keys on the server
 Use a **stronger** Diffie-Hellman Algorithm
 ```bash
-sudo ssh-keygen -G /tmp/moduli.strong -b 2048
-sudo ssh-keygen -T /etc/ssh/moduli -f /tmp/moduli.strong
+sudo ssh-keygen -M generate -O bits=2048 /tmp/moduli.strong
+sudo ssh-keygen -M screen -f /tmp/moduli.strong /etc/ssh/moduli
 sudo rm /tmp/moduli.strong
 ```
 Re-generate the RSA and ED25519 keys
