@@ -107,7 +107,12 @@ sudo ufw allow from any to any port <sshd_port> proto tcp
 ```
 
 ## Appendix A - Sources
-[Use Advanced OpenSSH Features to Harden Access to Your Linode](https://www.linode.com/docs/security/advanced-ssh-server-security/)
-[Harden the World - OpenSSH](http://docs.hardentheworld.org/Applications/OpenSSH/)
-[Hardening SSH](https://medium.com/@jasonrigden/hardening-ssh-1bcb99cd4cef)
-[Limit access to openssh features with the Match option](https://raymii.org/s/tutorials/Limit_access_to_openssh_features_with_the_Match_keyword.html)
+- [Debian SSHD_CONFIG(5)](https://manpages.debian.org/unstable/openssh-server/sshd_config.5.en.html)
+- [sshd_config(5) — Linux manual page](https://man7.org/linux/man-pages/man5/sshd_config.5.html)
+- [openbsd / src / ssh/sshd_config](https://github.com/openbsd/src/blob/master/usr.bin/ssh/sshd_config)
+- [Use Advanced OpenSSH Features to Harden Access to Your Linode](https://www.linode.com/docs/security/advanced-ssh-server-security/)
+- [Harden the World - OpenSSH](http://docs.hardentheworld.org/Applications/OpenSSH/)
+- [Hardening SSH](https://medium.com/@jasonrigden/hardening-ssh-1bcb99cd4cef)
+- [Limit access to openssh features with the Match option](https://raymii.org/s/tutorials/Limit_access_to_openssh_features_with_the_Match_keyword.html)
+- [Fixing ssh-keygen Unknown Option -G or -T on Ubuntu 20.04](https://chewett.co.uk/blog/2535/fixing-ssh-keygen-unknown-option-g-or-t-on-ubuntu-20-04/)
+- [New way to manage SSH options in Ubuntu 20.04](https://linuxliteracy.com/new-way-to-manage-ssh-options-in-ubuntu-20-04/)
