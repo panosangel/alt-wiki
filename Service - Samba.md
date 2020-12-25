@@ -29,6 +29,14 @@ Finally, all users who need to access a protected samba share will need to type 
 ```bash
 sudo smbpasswd -a <username>
 ```
+Edit an **existing samba user's** password with:
+```bash
+sudo smbpasswd <username>
+```
+Finally, list all samba users:
+```bash
+sudo pdbedit -L -v
+```
 
 ## Configure a group folder to share
 If not done already (_See the Users guide for more!_): 
