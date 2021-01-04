@@ -50,9 +50,9 @@ _See the appropriate guide for more!_
 
 ## Connect to the server
 1. Add PostgreSQL Apt Repository in Ubuntu following the [instructions](https://www.postgresql.org/download/).
-2. Install the following packages to get the CLI client (version 11):
+2. Install the following packages to get the CLI client (version 13):
     ```bash
-    sudo apt-get install postgresql-client-common postgresql-client-11
+    sudo apt-get install postgresql-client-common postgresql-client-13
     ```
 3. Fire the container up with `docker-compose up`
 4. Run `psql -h localhost -U postgres`
