@@ -21,7 +21,7 @@ Options:
 
 ### Run
 ```sh
-docker container run [OPTIONS] IMAGE [COMMAND] [ARG...]
+docker container run [OPTIONS] <image-name> [COMMAND] [ARG...]
 ```
 Options:
 - Name: `--name CONTAINER`  
@@ -34,21 +34,20 @@ Options:
 
 ### Stop
 ```sh
-docker container stop CONTAINER
+docker container stop <container-name>
 ```
 
 ### Remove
 ```sh
-docker container rm [OPTIONS] CONTAINER [CONTAINER...]
+docker container rm [OPTIONS] <container-name> [CONTAINER...]
 ```
 Options:
 - Remove a running container: `-f`
 
 ### Logs
 ```sh
-docker container logs [OPTIONS] CONTAINER
+docker container logs [OPTIONS] <container-name>
 ```
-
 
 ## FAQ
 
@@ -60,16 +59,8 @@ docker container logs [OPTIONS] CONTAINER
 
 ### Enter a running container
 ```sh
-docker container exec -it CONTAINER /bin/bash
+docker container exec -it <container-name> /bin/bash
 ```
 
 ## Sources
-
-- [YT - Traversy Media - Docker Help Gist](https://www.youtube.com/redirect?v=Kyx2PsuwomE)  
-- 
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbOTcwMDM2NzkzLDE5OTA3OTYyNjMsMTI3OT
-U3NTA4MSwtMTM5NDU0NzkwMSwtMzI4ODE5MzExLC0xNDU0NDIz
-MTMzLC0yMjAyNDc4MjAsLTY0Mjc3NzE1Miw0MjcxNDkwODksLT
-I2Nzk2Mzk3XX0=
--->
+- [Docker Commands, Help & Tips](https://www.youtube.com/redirect?v=Kyx2PsuwomE)  
