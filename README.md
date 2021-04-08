@@ -45,5 +45,6 @@ Guides and personal documentation for popular system services and applications
 - Manage PDF Files
 - Mass Convert Picture Files
 - Mount s3fs-fuse
+- PDF Operations
 - Postgres Database Management
 - Zsh & Oh-My-Zsh
