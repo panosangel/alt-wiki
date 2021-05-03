@@ -84,3 +84,5 @@ gpg --auto-key-locate keyserver --locate-keys <email>
 
 ## Appendix A - Sources
 - [keys.openpgp.org - Usage](https://keys.openpgp.org/about/usage)
+- [How to Backup and Restore Your GPG Key](https://risanb.com/code/backup-restore-gpg-key/)
+- [gpg: what do I need to backup?](https://serverfault.com/questions/86048/gpg-what-do-i-need-to-backup)
