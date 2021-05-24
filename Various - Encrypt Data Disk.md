@@ -70,7 +70,7 @@ ls -l /dev/mapper/<NameOfYourChoice>
 ```
 You can use the following command to see the status for the mapping:
 ```shell script
-cryptsetup -v status <NameOfYourChoice>
+sudo cryptsetup -v status <NameOfYourChoice>
 ```
 
 ## Format encrypted volume
