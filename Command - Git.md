@@ -54,6 +54,10 @@ or
 git branch <branch-name>
 git checkout <branch-name>
 ```
+Create a branch from a specific commit:
+```bash
+git branch <branch-name> <sha>
+```
 
 ### Merge two branches
 Let's say we want to merge `feature-101` into `develop`.
