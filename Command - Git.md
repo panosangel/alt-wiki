@@ -11,6 +11,36 @@ git init
 git status 
 ```
 
+## Logs
+Show commits of current branch
+```bash
+git log
+```
+Squeeze info in one line
+```bash
+git log --oneline
+```
+Show which files are affected and how many lines of them
+```bash
+git log --stat
+```
+Show which files are affected and how
+```bash
+git log --patch
+```
+Squeeze info in one line
+```bash
+git log --oneline
+```
+Show info about a spesific commit
+```bash
+git show [options] <sha>
+```
+Show all branches and how are connected
+```bash
+git log --oneline --graph --all
+```
+
 ## Fetching
 `Fetch` branches and/or tags (collectively, "refs") from one or more other repositories, along with the objects necessary to complete their histories. Remote-tracking branches are updated.
 
