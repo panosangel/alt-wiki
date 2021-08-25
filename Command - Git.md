@@ -97,6 +97,23 @@ git push <remote-name> --delete <branch-name>
 git remote prune origin
 ```
 
+## Tagging
+
+Tag the latest commit in the branch
+```bash
+git tag -a "tag name"
+```
+
+Tag a past commit
+```bash
+git tag -a "tag name" <sha>
+```
+
+Remove tag
+```bash
+git tag -d "tag name"
+```
+
 ---
 
 ## Tips & Tricks
