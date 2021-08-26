@@ -169,6 +169,26 @@ When you tell Git to revert a specific commit, Git takes the changes that were m
 git revert <SHA>
 ```
 
+## Resetting
+You've got to be careful with Git's resetting capabilities. This is one of the few commands that lets you erase commits from the repository. If a commit is no longer in the repository, then its content is gone.
+
+- `--mixed` [Default]  
+  Move changed files to working directory. If we commit again we'll end up in the same result
+- `--soft`
+  Move changed files to stage.
+- `--hard`
+  We throw out all the changes 
+
+```bash
+git reset
+```
+
+### Backup
+Before resetting we can always create a backup branch using `git branch backup` as a safety net. If we want to go back first we need to remove the uncommitted changes from the working directory and merge (fast forward) `backup` to the reset branch. 
+
+### To the rescue
+To alleviate the stress a bit, Git does keep track of everything for about 30 days before it completely erases anything. To access this content, you'll need to use the `git reflog` command.
+
 ---
 
 ## Tips & Tricks
@@ -187,3 +207,4 @@ git merge --no-ff develop
 - [Git Branching - Branch Management](https://git-scm.com/book/en/v2/Git-Branching-Branch-Management)
 - [Koukia - Delete a local and a remote GIT branch](https://koukia.ca/delete-a-local-and-a-remote-git-branch-61df0b10d323)
 - [Git Documentation - git-fetch](https://git-scm.com/docs/git-fetch)
+- [Udacity - Version Control with Git](https://classroom.udacity.com/courses/ud123)
