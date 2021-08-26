@@ -163,6 +163,12 @@ So you'd make changes to the necessary CSS and/or HTML files to get the forgotte
 
 [Source](https://classroom.udacity.com/courses/ud123/lessons/f02167ad-3ba7-40e0-a157-e5320a5b0dc8/concepts/e176503b-3eae-4b22-a1b3-2953bab3d5e5)
 
+## Reverting
+When you tell Git to revert a specific commit, Git takes the changes that were made in commit and does the exact opposite of them.
+```bash
+git revert <SHA>
+```
+
 ---
 
 ## Tips & Tricks
