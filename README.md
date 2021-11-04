@@ -40,7 +40,7 @@ Guides and personal documentation for popular system services and applications
 ## Various
 - CD Ripping
 - Encrypt Data Disk
-- Let's Encrypt
+- Let's Encrypt w/ certbot
 - Manage Git Accounts
 - Manage PDF Files
 - Mass Convert Picture Files
