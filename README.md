@@ -41,6 +41,7 @@ Guides and personal documentation for popular system services and applications
 - CD Ripping
 - Encrypt Data Disk
 - Let's Encrypt w/ certbot
+- Let's Encrypt w/ ACME.sh
 - Manage Git Accounts
 - Manage PDF Files
 - Mass Convert Picture Files
