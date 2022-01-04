@@ -3,7 +3,7 @@
 ## Recommended plugins
 
 ### IDE related
-- `Key Promoter X` by halirutan
+- `Key Promoter X` by Hal's Corner
 - `Force Shortcuts` by Trey Trahin
 
 ### Productivity
@@ -11,9 +11,8 @@
 - `LiveEdit` by JetBrains
 
 ### Themes & Icons
-- `Material Theme UI` by Mallowigi
-- `Atom Material Icons` by Elior Boukhobza (Mallowigi)
-- `Hadouken Progress Bar` by Daniel Felipe Sartorio
+- `Material Theme UI` by AtomMaterial
+- `Atom Material Icons` by AtomMaterial
 
 ### DB Management
 - `Database Navigator` by Dan Cioca
