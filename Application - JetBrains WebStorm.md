@@ -42,6 +42,7 @@
   - Override Accent Color from theme
   - Compact Statusbar
   - Material Fonts
+  - Automatically reset color scheme
 
 ## Useful Key Bindings
 
