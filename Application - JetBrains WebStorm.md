@@ -52,3 +52,9 @@
 - Reformat Code: `Ctrl + Alt + L`
 - Structure: `Alt + 7`
 - Change Theme
+
+## Menu Selections
+
+- View -> Appearance -> Enter Zen Mode
+- Help -> Learn IDE Features
+- Help -> Ny Productivity
