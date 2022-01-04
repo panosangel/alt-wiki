@@ -2,13 +2,10 @@
 
 ## Recommended plugins
 
-### IDE related
+### Productivity
 
 - `Key Promoter X` by Hal's Corner
 - `Force Shortcuts` by Trey Trahin
-
-### Productivity
-
 - `Rainbow Brackets` by izhangzhihao
 - `LiveEdit` by JetBrains
 
@@ -16,13 +13,20 @@
 
 - `Material Theme UI` by AtomMaterial
 - `Atom Material Icons` by AtomMaterial
+- `Gradianto` by thvarhan
 
-### DB Management
+### JavaScript
 
+- `Quokka` by Wallaby.js
+
+### Tools
+
+- `nx-webstorm` by etkachev
 - `Database Navigator` by Dan Cioca
+- 
+### Miscellaneous
 
-### Various
-
+- `Import Cost` by Dennis Ushakov, Andrey Starovoyt
 - `IDEA Mind Map` by Igor Maznitsa
 - `WakaTime` by WakaTme
 
