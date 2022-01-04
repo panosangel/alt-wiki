@@ -42,5 +42,10 @@ Material Theme: Atom One Dark
 
 ## Useful Key Bindings
 
-- Settings (Windows: Ctrl + Alt + S)
-- Quick Switch panel (Ctrl + \`) (Windows: Ctrl + ~)`
+- Settings: `Ctrl + Alt + S`
+- Search Everywhere: `Shift + Shift`
+- Insert Live Template: `Ctrl + J`
+- Quick Switch panel: `Ctrl + ~`
+- Reformat Code: `Ctrl + Alt + L`
+- Structure: `Alt + 7`
+- Change Theme
