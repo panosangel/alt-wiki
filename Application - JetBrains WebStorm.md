@@ -23,7 +23,7 @@
 
 - `nx-webstorm` by etkachev
 - `Database Navigator` by Dan Cioca
-- 
+
 ### Miscellaneous
 
 - `Import Cost` by Dennis Ushakov, Andrey Starovoyt
@@ -34,7 +34,10 @@
 
 ### Appearance & Behavior
 
-Material Theme: Atom One Dark
+- Appearance
+  - Widescreen tool window layout
+
+- Material Theme: Atom One Dark
   - Contrast Mode
   - Override Accent Color from theme
   - Compact Statusbar
