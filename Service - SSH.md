@@ -29,8 +29,8 @@ Copy the newly created public key on the remote machine:
 ```bash
 ssh-copy-id -i ~/.ssh/id_rsa_username.pub <remote_username>@<remote_machine>:<port>
 ```
-**Note:** The remore server should still allow password-logins at this point in order to use `ssh-copy-id`.
-Otherwise login to the server and copy user's public key manually. 
+**Note:** The remote server should still allow password-logins at this point in order to use `ssh-copy-id`.
+Otherwise, login to the server and copy user's public key manually. 
 
 ## Server configuration
 
