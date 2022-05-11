@@ -4,9 +4,11 @@
 
 Use a **stronger** Diffie-Hellman Algorithm
 ```bash
-sudo ssh-keygen -G /tmp/moduli.strong -b 2048
-sudo ssh-keygen -T /etc/ssh/moduli -f /tmp/moduli.strong
-sudo rm /tmp/moduli.strong
+mkdir /tmp/moduli && cd /tmp/moduli
+ssh-keygen -M generate -O bits=2048 moduli-2048.candidates
+ssh-keygen -M screen -f moduli-2048.candidates moduli-2048
+cp moduli-2048 /etc/ssh/moduli
+rm moduli-2048
 ```
 
 Re-generate the RSA and ED25519 keys
@@ -131,3 +133,4 @@ sudo ufw allow from any to any port <sshd_port> proto tcp
 - [Harden the World - OpenSSH](http://docs.hardentheworld.org/Applications/OpenSSH/)
 - [Hardening SSH](https://medium.com/@jasonrigden/hardening-ssh-1bcb99cd4cef)
 - [Limit access to openssh features with the Match option](https://raymii.org/s/tutorials/Limit_access_to_openssh_features_with_the_Match_keyword.html)
+- [Fixing ssh-keygen Unknown Option -G or -T on Ubuntu 20.04](https://chewett.co.uk/blog/2535/fixing-ssh-keygen-unknown-option-g-or-t-on-ubuntu-20-04/)
