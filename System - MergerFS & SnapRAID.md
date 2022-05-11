@@ -29,9 +29,9 @@ sudo tune2fs -m 1 /dev/sdd1
 ##  MergerFS installation
 
 Find the latest stable release from the [Official Source](https://github.com/trapexit/mergerfs/releases). 
-Currently, this version is `2.32.4` so download and install at once:
+Currently, this version is `2.33.5` and we target `Ubuntu 22.04` so download and install at once:
 ```bash
-wget https://github.com/trapexit/mergerfs/releases/download/2.32.4/mergerfs_2.32.4.ubuntu-focal_amd64.deb && sudo dpkg -i mergerfs*.deb
+wget https://github.com/trapexit/mergerfs/releases/download/2.33.5/mergerfs_2.33.5.ubuntu-jammy_amd64.deb && sudo dpkg -i mergerfs*.deb
 ```
 If not present, `fuse` needs to be installed:
 ```bash
@@ -103,9 +103,9 @@ sudo apt-get install snapraid
 ```
 or from sources (preferably) and the following script:
 ```bash
-wget https://github.com/amadvance/snapraid/releases/download/v11.5/snapraid-11.5.tar.gz
-tar xzvf snapraid-11.5.tar.gz
-cd snapraid-11.5/
+wget https://github.com/amadvance/snapraid/releases/download/v12.1/snapraid-12.1.tar.gz
+tar xf snapraid-*.tar.gz
+cd snapraid-*
 ./configure
 make
 make check
