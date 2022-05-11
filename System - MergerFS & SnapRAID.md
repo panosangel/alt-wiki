@@ -176,16 +176,18 @@ sudo nano /opt/snapraid-runner/snapraid-runner.conf
 ```
 ```
 [snapraid]
-executable = /usr/bin/snapraid
+executable = snapraid
 config = /etc/snapraid.conf
-deletethreshold = 250
+deletethreshold = 99
+touch = false
 
 [logging]
 file = /var/log/snapraid-runner.log
+maxsize = 5000
 
 [scrub]
 enabled = true
-percentage = 22
+plan = 5
 older-than = 10
 ```
 
