@@ -101,6 +101,13 @@ Configuration example:
   create mask = 0660
   directory mask = 0770
 ```
+
+It is  recommended that you verify the Samba configuration each time you update the /etc/samba/smb.conf file using the  testparm utility
+You can simply execute it as follows:
+```
+testparm
+```
+
 Restart the daemon:
 ```bash
 sudo systemctl restart smbd
