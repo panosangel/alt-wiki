@@ -2,11 +2,11 @@
 
 ## Strategy
 
-- One user per person
-- Common group (i.e. `common`)
-- One private folder per user (`/mnt/storage/<username>`)
-- One common folder (`/mnt/storage/<common-group>`)
-- One ssh key-pair per user (_See the SSH guide for more!_)
+1. One user per person
+2. Common group (i.e. `common`)
+3. One private folder per user (`/mnt/storage/<username>`)
+4. One common folder (`/mnt/storage/<common-group>`)
+5. One ssh key-pair per user (_See the SSH guide for more!_)
 
 ## Prepare users and groups
 
