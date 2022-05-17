@@ -55,7 +55,7 @@ getfacl /mnt/storage/<common-group>
 ```
 \* **Note**: To enable ACL support, filesystems must be mounted with `acl` option.
 
-## Create users' private
+## Create users' private space
 
 ```bash
 sudo mkdir /mnt/storage/<username>
