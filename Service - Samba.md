@@ -2,7 +2,7 @@
 
 ## Install Samba
 ```bash
-sudo apt-get install samba libpam-winbind
+sudo apt-get install samba
 ```
 
 ## Create a public folder to share
