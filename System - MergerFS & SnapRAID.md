@@ -176,7 +176,7 @@ sudo nano /opt/snapraid-runner/snapraid-runner.conf
 ```
 ```
 [snapraid]
-executable = snapraid
+executable = /usr/local/bin/snapraid
 config = /etc/snapraid.conf
 deletethreshold = 99
 touch = false
