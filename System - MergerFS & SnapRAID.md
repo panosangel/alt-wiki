@@ -196,7 +196,7 @@ Add an entry using `crontab`:
 sudo crontab -e
 ```
 ```
-0 3 * * * python2 /opt/snapraid-runner/snapraid-runner.py -c /opt/snapraid-runner/snapraid-runner.conf
+0 3 * * * python3 /opt/snapraid-runner/snapraid-runner.py -c /opt/snapraid-runner/snapraid-runner.conf
 ```
 
 ## Appendix A - Sources
