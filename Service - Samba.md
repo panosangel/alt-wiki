@@ -49,14 +49,14 @@ sudo pdbedit -L -v
 
 ## Configure a group folder to share
 
-If not done already (_See the Users guide for more!_): 
-- Create the a common group folder.
+If not done already (_See the [Users & Filesystem](System%20-%20Users%20&%20Filesystem%20Layout.md)  guide for more!_): 
+- Create a common group folder.
 - Set ownership of the folder to `root:common`
 - Set the permissions to `0770` so that only group `common` members can read and write to it.
 
 ## Samba private shares
 
-If not done already (_See the Users guide for more!_): 
+If not done already (_See the [Users & Filesystem](System%20-%20Users%20&%20Filesystem%20Layout.md) guide for more!_): 
 - Create private user's (i.e jim) folder.
 - Set ownership of the folder to `jim:jim`
 - Set the permissions to `0770` so that only user `jim` user can read and write to it.
@@ -114,7 +114,7 @@ Configuration example:
   directory mask = 0770
 ```
 
-It is  recommended that you verify the Samba configuration each time you update the /etc/samba/smb.conf file using the  testparm utility
+It is  recommended that you verify the Samba configuration each time you update the /etc/samba/smb.conf file using the `testparm` utility
 You can simply execute it as follows:
 ```
 testparm
@@ -141,14 +141,15 @@ TODO
 ### macOS
 
 Finder + Go -> Connect to Server.
-Tested on macbook pro and it works fine on read/write!
-Permissions as well.
+- Tested on macbook pro. It works fine on read/write!
+- Permissions as well.
 
 ### Android
 
 Total Commander + LAN plugin.
-Tested on Xiaomi A2 and it works fine on read/write!
-Permissions as well.
+- Tested on Xiaomi A2. It works fine on read/write!
+- Tested on Poco X3 Pro. It works fine on read/write!
+- Permissions as well.
 
 ## Firewall rules
 
