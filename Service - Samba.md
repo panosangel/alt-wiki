@@ -116,7 +116,12 @@ sudo systemctl restart smbd
 ## Access Samba
 
 ### Linux
-TODO
+
+In file manager **Nemo** File -> Connect to server
+```
+Server: <server_ip>
+Type: Windows share
+```
 
 ### Windows
 TODO
