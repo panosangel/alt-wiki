@@ -56,45 +56,50 @@ Make a backup copy of the configuration file and edit it:
 sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.ORIGINAL
 sudo nano /etc/samba/smb.conf
 ```
-**Note:** To keep the configuration file as simple as possible we have skipped including the default settings as found in the man page. Find more information in `Appendix B - Default configuration settings`.
+
+Configuration example:
 ```
 [global]
-bind interfaces only = yes
-interfaces = lo enp3s0
-workgroup = WORKGROUP
-server string = %h has never left home!
-server role = standalone
-security = user
-map to guest = Bad User
-log file = /var/log/samba/%m.log
-max log size = 1000
+  workgroup = WORKGROUP
+  server string = %h has never left home!
+  interfaces = lo enp3s0
+  bind interfaces only = yes
+
+  log file = /var/log/samba/%m.log
+  max log size = 1000
+
+  server role = standalone server
+  obey pam restrictions = yes
+  unix password sync = yes
+  pam password change = yes
+  map to guest = bad user
 
 # Samba Shares
 
 [public]
-comment = Public anonymous access
-path = /mnt/storage/public
-guest ok = yes
-writable = yes
-create mask = 0666
-directory mask = 0775
-force user = nobody
+  comment = Public anonymous access
+  path = /mnt/storage/public
+  guest ok = yes
+  writable = yes
+  create mask = 0664
+  directory mask = 0775
+  force user = nobody
 
 [common]
-comment = Storage area for the few
-path = /mnt/storage/common
-writable = yes
-valid users = @commom
-create mask = 0770
-directory mask = 0770
+  comment = Storage area for the few
+  path = /mnt/storage/common
+  writable = yes
+  valid users = @commom
+  create mask = 0660
+  directory mask = 0770
 
 [homes]
-comment = Home storage area of %S
-path = /mnt/storage/%S
-writable = yes
-valid users = %S
-create mask = 0660
-directory mask = 0770
+  comment = Home storage area of %S
+  path = /mnt/storage/%S
+  writable = yes
+  valid users = %S
+  create mask = 0660
+  directory mask = 0770
 ```
 Restart the daemon:
 ```bash
