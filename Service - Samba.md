@@ -1,15 +1,18 @@
-## Service - Samba
+# Service - Samba
 
 ## Install Samba
+
 ```bash
 sudo apt-get install samba
 ```
 
 ## Create a public folder to share
+
 Next, create the public folder where everyone should have access to as is defined in the Samba configuration.
 ```bash
 sudo mkdir -p /mnt/storage/public
 ```
+
 Set the permissions so that everyone can read and write to it.
 ```bash
 sudo chown -R nobody:nogroup /mnt/storage/public
@@ -17,40 +20,49 @@ sudo chmod -R 0775 /mnt/storage/public
 ```
 
 ## Samba group & users
+
 Create a user group for the private group shares:
 ```bash
 sudo addgroup <common-group>
 ```
+
 Then add an **existing system user** to the group by running the commands below:
 ```bash
 sudo usermod -aG <common-group> <username>
 ```
-Finally, all users who need to access a protected samba share will need to type a password. Samba doesn't use the system account password, so we need to set up a Samba password for our user account:
+
+Finally, all users who need to access a protected samba share will need to type a password.  
+Samba doesn't use the system account password, so we need to set up a Samba password for our user account:
 ```bash
 sudo smbpasswd -a <username>
 ```
+
 Edit an **existing samba user's** password with:
 ```bash
 sudo smbpasswd <username>
 ```
+
 Finally, list all samba users:
 ```bash
 sudo pdbedit -L -v
 ```
 
 ## Configure a group folder to share
+
 If not done already (_See the Users guide for more!_): 
 - Create the a common group folder.
 - Set ownership of the folder to `root:common`
 - Set the permissions to `0770` so that only group `common` members can read and write to it.
 
 ## Samba private shares
+
 If not done already (_See the Users guide for more!_): 
 - Create private user's (i.e jim) folder.
 - Set ownership of the folder to `jim:jim`
 - Set the permissions to `0770` so that only user `jim` user can read and write to it.
 
 ## Configure Samba
+
 Make a backup copy of the configuration file and edit it:
 ```bash
 sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.ORIGINAL
@@ -127,29 +139,33 @@ Type: Windows share
 TODO
 
 ### macOS
+
 Finder + Go -> Connect to Server.
 Tested on macbook pro and it works fine on read/write!
 Permissions as well.
 
 ### Android
+
 Total Commander + LAN plugin.
 Tested on Xiaomi A2 and it works fine on read/write!
 Permissions as well.
 
 ## Firewall rules
+
 ```bash
 sudo ufw allow from 192.168.1.0/24 to any port 139,445 proto tcp
 sudo ufw allow from 192.168.1.0/24 to any port 137,138 proto udp
 ```
 
 ## Appendix A - Sources
+
 - [smb.conf — The configuration file for the Samba suite](https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html)
 - [Ubuntu Official Tutorials - Install and Configure Samba](https://tutorials.ubuntu.com/tutorial/install-and-configure-samba)
 - [Samba Setup on Ubuntu 16.04 / 17.10 / 18.04 with Windows Systems](https://websiteforstudents.com/samba-setup-on-ubuntu-16-04-17-10-18-04-with-windows-systems/)
 - [How to configure Samba Server share on Ubuntu 18.04 Bionic Beaver Linux](https://linuxconfig.org/how-to-configure-samba-server-share-on-ubuntu-18-04-bionic-beaver-linux)
 - [Ubuntu Official - Samba](https://help.ubuntu.com/lts/serverguide/samba.html.en)
 - [Ubuntu 18.04 - Samba shares problem fix](https://www.dedoimedo.com/computers/ubuntu-beaver-samba-shares.html)
--[Samba - What is the difference between %S, %u and %U variables in sbm.comf](https://lists.samba.org/archive/samba/2012-November/169927.html)
+- [Samba - What is the difference between %S, %u and %U variables in sbm.comf](https://lists.samba.org/archive/samba/2012-November/169927.html)
 - [How do I define a samba share so that every user can only see its own home?](https://unix.stackexchange.com/questions/36853/how-do-i-define-a-samba-share-so-that-every-user-can-only-see-its-own-home)
 - [O'Reilly Samba book - Table C.1: Variables in Alphabetic Order](https://www.oreilly.com/openbook/samba/book/appc_01.html#appc-88529)
 - [Linux Mint Tutorials - Using the \[homes\] Share in Samba](https://forums.linuxmint.com/viewtopic.php?f=42&t=77063&sid=464f3d114dc81a360b841436997d9edc)
