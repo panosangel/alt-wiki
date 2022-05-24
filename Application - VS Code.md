@@ -88,3 +88,5 @@ Get it for all platforms from https://code.visualstudio.com/
 - [25 VS Code Productivity Tips and Speed Hacks](https://www.youtube.com/watch?v=ifTF3ags0XI)
 - [Best VS Code Extensions I Wish I Knew Before](https://www.youtube.com/watch?v=ZqW8JT1gt4U)
 - [20 Best VS Code Themes](https://www.youtube.com/watch?v=gFGCt7sAvLA)
+- [GitHub - tonsky/FiraCode](https://github.com/tonsky/FiraCode)
+- [How to integrate Cmder properly in VS Code April 2021?](https://stackoverflow.com/questions/67489288/how-to-integrate-cmder-properly-in-vs-code-april-2021)
