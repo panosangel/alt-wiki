@@ -54,12 +54,17 @@ Get it for all platforms from https://code.visualstudio.com/
 
 ### Angular
 
-- `Angular Essentials (Version 12)` by John Papa
-  - `Angular Snippets (Version 12)` by John Papa
+- `Angular Essentials (Version 13)` by John Papa
+  - `Angular Snippets (Version 13)` by John Papa
   - `Angular Language Service` by Angular
-  - `Nx Console` by nrwl
-  - and more...
-
+  - `EditorConfig for VS Code` by EditorConfig
+  - `ESLint` by Microsoft
+  - `Winter is Coming Theme` by John Papa
+  - `Peacock` by John Papa
+  - `Prettier - Code formatter` by Prettier
+  - `npm` by Microsoft
+  - `Material Icon Theme` by Philipp Kief
+- `Nx Console` by nrwl
 - `Angular Evergreen` by Expertly Simple
 
 ## Useful Key-bindings
