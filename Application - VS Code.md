@@ -78,9 +78,22 @@ Get it for all platforms from https://code.visualstudio.com/
 
 ## Settings
 
-- Font: 'Fira Code'
+- Enable Fira fonts after being installed (see Sources)
+```
+"editor.fontFamily": "'Fira Code', monospace",
+"editor.fontLigatures": true,
+```
 
-- "editor.defaultFormatter": "esbenp.prettier-vscode"
+- Enable Prettier
+```
+"editor.defaultFormatter": "esbenp.prettier-vscode"
+```
+
+- Enable embedded Bracker Pair
+```
+"editor.bracketPairColorization.enabled": true,
+"editor.guides.bracketPairs":"active"
+```
 
 ## Source
 
