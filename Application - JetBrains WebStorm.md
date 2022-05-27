@@ -11,8 +11,8 @@
 
 ### Themes & Icons
 
-- `Material Theme UI` by AtomMaterial
-- `Atom Material Icons` by AtomMaterial
+- `Material Theme UI` by Atom Material Themes & Plugins
+- `Atom Material Icons` by Atom Material Themes & Plugins
 - `Gradianto` by thvarhan
 
 ### JavaScript
