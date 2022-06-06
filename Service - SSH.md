@@ -29,14 +29,20 @@ Copy the newly created public key on the remote machine:
 ```bash
 ssh-copy-id -i ~/.ssh/id_rsa_username.pub <remote_username>@<remote_machine>:<port>
 ```
-**Note:** The remote server should still allow password-logins at this point in order to use `ssh-copy-id`.
+**Note:** The remote server should still allow password-logins (`PasswordAuthentication yes`) at this point in order to use `ssh-copy-id`.
 Otherwise, login to the server and copy user's public key manually. 
 
 ## Server configuration
 
-Edit config file:
+Since Ubuntu 20.04 LTS the default configuration (`/etc/ssh/sshd_config`) includes a new instruction (`Include /etc/ssh/sshd_config.d/*.conf`).
+This instruction allow us to add our configuration as a separate file inside `/etc/ssh/sshd_config.d` with an ending of `.conf`.
+
+Inside that file, enter the keywords and arguments you want to change from default, or ensure are explicitly addressed. Note that keywords are case-insensitive and arguments are case-sensitive.  
+**Note:** It will supersede settings in the /etc/ssh/sshd_config file.
+
+Add config file:
 ```bash
-sudo nano /etc/ssh/sshd_config
+sudo nano /etc/ssh/sshd_config.d/10-my-settings.conf
 ```
 
 Recommended settings:
