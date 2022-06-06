@@ -5,6 +5,7 @@ Guides and personal documentation for popular system services and applications
 - Datetime sync
 - Disk Management
 - Install Ubuntu 18.04 Server
+- Install Ubuntu 22.04 Server
 - MergerFS & SnapRAID
 - Monitor Disk Health
 - Networking
