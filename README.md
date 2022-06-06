@@ -50,4 +50,5 @@ Guides and personal documentation for popular system services and applications
 - Mount s3fs-fuse
 - PDF Operations
 - Postgres Database Management
+- System Information
 - Zsh & Oh-My-Zsh

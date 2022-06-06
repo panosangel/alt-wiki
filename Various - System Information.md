@@ -23,3 +23,20 @@ Find RAM speed:
 ```shell script
 sudo dmidecode --type 17
 ```
+
+List PCI devices:
+```
+lspci
+```
+
+List block devices
+```
+lsblk
+```
+
+## Network
+
+Show network devices
+``` 
+ip addr show
+```
