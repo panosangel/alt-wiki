@@ -32,6 +32,7 @@ Guides and personal documentation for popular system services and applications
 - Git-Flow
 - SSH
 - GnuPG
+- Rclone
 - Rsync
 
 ## Applications
