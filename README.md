@@ -5,6 +5,7 @@ Guides and personal documentation for popular system services and applications
 - Datetime sync
 - Disk Management
 - Install Ubuntu 18.04 Server
+- Install Ubuntu 22.04 Server
 - MergerFS & SnapRAID
 - Monitor Disk Health
 - Networking
@@ -31,6 +32,7 @@ Guides and personal documentation for popular system services and applications
 - Git-Flow
 - SSH
 - GnuPG
+- Rclone
 - Rsync
 
 ## Applications
@@ -48,4 +50,5 @@ Guides and personal documentation for popular system services and applications
 - Mount s3fs-fuse
 - PDF Operations
 - Postgres Database Management
+- System Information
 - Zsh & Oh-My-Zsh
