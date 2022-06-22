@@ -1,0 +1,249 @@
+/* SOURCES */
+/* https://github.com/jensimmons/cssremedy */
+/* https://github.com/necolas/normalize.css/ */
+/* https://github.com/sindresorhus/modern-normalize */
+/* https://www.w3schools.com/cssref/css_default_values.asp */
+
+/*
+    === LEGACY ===
+*/
+
+[hidden] {
+  display: none;
+}
+
+a {
+  background-color: transparent;
+}
+
+img {
+  border-style: none;
+}
+
+svg {
+  overflow: hidden;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section {
+  display: block;
+}
+
+[type='checkbox'],
+[type='radio'] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/*
+    === GLOBAL ===
+*/
+
+:root {
+  /* Vars go in here */
+
+  /* https://www.youtube.com/watch?v=wARbgs5Fmuw */
+  --fs-xl: clamp(3.5rem, 12vw + 1rem, 8rem);
+  --fs-600: 2rem;
+  --fs-500: 1.25rem;
+  --fs-400: 1rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  line-height: 1.15;
+}
+
+body {
+  overflow-x: hidden;
+  line-height: 1.5rem;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+/*
+    === TYPOGRAPHY ===
+*/
+
+body {
+  font-family: 'a-great-font', sans-serif;
+  font-weight: 400;
+  font-size: var(--fs-400);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'another-great-font', serif;
+  font-weight: 900;
+  line-height: 1.25; /* Could be smaller like 1 */
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  max-width: 60ch;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.17rem;
+}
+
+h4 {
+  font-size: 1.00rem;
+}
+
+h5 {
+  font-size: 0.83rem;
+}
+
+h6 {
+  font-size: 0.67rem;
+}
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+small {
+  font-size: 80%;
+}
+
+caption, figcaption, label, legend {
+  line-height: 1.375;
+}
+
+blockquote {
+  font-size: var(--fs-600);
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+blockquote:before {
+  content: open-quote;
+}
+
+blockquote:after {
+  content: close-quote;
+}
+
+/*
+    === ELEMENTS ===
+*/
+
+hr {
+  box-sizing: content-box;
+  border-style: solid;
+  border-width: 1px 0 0;
+  color: inherit;
+  height: 0;
+  overflow: visible;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+/*
+    === FORM ELEMENTS ===
+*/
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/*
+    === EMBEDDED ELEMENTS ===
+*/
+
+img, svg, video, canvas, audio, iframe, embed, object {
+  display: block;
+  vertical-align: middle;
+  max-width: 100%;
+}
+
+img, svg, video, canvas {
+  height: auto;
+}
+
+audio:not([controls]) {
+  display: none;
+}
+
+/*
+    === More styling ===
+*/
+
+header,
+section {
+  padding: 4rem 0;
+}
+
+@media (min-width: 40rem) {
+  header,
+  section {
+    padding: 7rem 0;
+  }
+}
+
+.container {
+  margin: 0 auto; /*margin-inline: auto;*/
+  width: min(70rem, 90%);
+}
+
+.container--narrow {
+  max-width: 40rem;
+}
+
+.split {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 40rem) {
+  .split {
+    flex-direction: row;
+  }
+
+  .split > * {
+    flex-basis: 100%;
+  }
+
+  .split > * + * {
+    margin-left: 2rem;
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
+}
