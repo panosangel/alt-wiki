@@ -6,7 +6,8 @@ Posting this as I was struggling with this question as well and finally found a 
 
 This works in the Firefox console only as far as I can tell...
 
-1. Set a breakpoint on the very first line of javascript that you know runs on your page after a refresh (before any cookie is set).
+1. Set a breakpoint on the very first line of javascript that you know runs on your page after a refresh (before any
+   cookie is set).
 2. Then clear your cache and cookies.
 3. Paste the below code snippet into your console in Firefox.
 4. Remove the breakpoint and resume script execution.
@@ -25,7 +26,7 @@ Object.defineProperty(document, 'cookie', {
     },
 
     set(value) {
-        console.log("%c Cookie is :" + value, "background: #ffffff; color: #000000");
+        console.log("%c Cookie is: " + value, "background: #ffffff; color: #000000");
         console.trace();
         // debugger;
         return origDescriptor.set.call(this, value);
@@ -37,6 +38,7 @@ Object.defineProperty(document, 'cookie', {
 ```
 
 **Chrome:**
+
 ```
 function debugAccess(obj, prop, debugGet) {
     let origValue = obj[prop];
@@ -48,7 +50,11 @@ function debugAccess(obj, prop, debugGet) {
         },
 
         set: function(val) {
+            console.log("%c Cookie is: " + val, "background: #ffffff; color: #000000");
+            console.trace();
+
             debugger;
+ 
             return origValue = val;
         }
     });
