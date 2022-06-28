@@ -1,4 +1,4 @@
-# Development - Configure Prettier
+# Code Style - Configure Prettier
 
 ## Check Node.js Installation
 
@@ -13,10 +13,11 @@ npm -v
 
 ## Configure
 
-Next, I recommend you set up a configuration file. This has the added benefit that regardless of what editor your team members use, they will all reference the same configuration file.  
-Prettier has defaults, and so you only need to specify the options you wish to override. However, I like to be explicit so that any developer on your team knows exactly what rules are being applied. 
+Next, I recommend you set up a configuration file. This has the added benefit that regardless of what editor your team members use, they will all reference the same configuration file.
 
-Create a `.prettierrc` file:
+Prettier has defaults, and so you only need to specify the options you wish to override.
+
+Create a file `.prettierrc` in the top level folder of the project and add the following configuration:
 
 ```json
 {
@@ -25,7 +26,6 @@ Create a `.prettierrc` file:
     {
       "files": ["*.html"],
       "options": {
-        "tabWidth": 4,
         "singleAttributePerLine": true
       }
     },
@@ -52,7 +52,8 @@ By default, it is :
 **/node_modules
 ```
 
-Create `.prettierignore` and add:
+Create a file named `.prettierignore` and add:
+
 ```
 **/build
 **/coverage
