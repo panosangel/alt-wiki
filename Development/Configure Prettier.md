@@ -78,8 +78,8 @@ See the official guide [JetBrains WebStorm - Prettier](https://www.jetbrains.com
 
 ```
 "scripts": {
-  "prettier:check": "prettier --list-different 'src/{app,environments,styles}/**/*.{ts,html,scss}'",
-  "prettier:fix": "prettier --write 'src/{app,environments,styles}/**/*.{ts,html,scss}'"
+  "prettier:check": "prettier --list-different ./src/{app,environments,assets/scss}/**/*.{ts,html,scss}",
+  "prettier:fix": "prettier --write ./src/{app,environments,assets/styles}/**/*.{ts,html,scss}"
 }
 ```
 
