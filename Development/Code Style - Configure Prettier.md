@@ -43,8 +43,12 @@ Create a file named `.prettierignore` and add:
 
 ```
 **/build
+**/dist
 **/coverage
 **/e2e
+**/lib
+*-lock.json
+*.lock
 ```
 
 ## IDE
