@@ -22,20 +22,7 @@ Create a file `.prettierrc` in the top level folder of the project and add the f
 ```json
 {
   "printWidth": 120,
-  "overrides": [
-    {
-      "files": ["*.html"],
-      "options": {
-        "singleAttributePerLine": true
-      }
-    },
-    {
-      "files": ["*.ts"],
-      "options": {
-        "singleQuote": true
-      }
-    }
-  ]
+  "singleQuote": true
 }
 ```
 
