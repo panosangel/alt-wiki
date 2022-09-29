@@ -95,15 +95,9 @@ df -Th
 
 ## Installing SnapRAID
 
-In Ubuntu, we have two options for installing SnapRAID.
-From PPA:
+In Ubuntu, it's very convenient to install SnapRAID from sources*:
 ```bash
-sudo add-apt-repository ppa:tikhonov/snapraid && sudo apt-get update
-sudo apt-get install snapraid
-```
-or from sources (preferably) and the following script:
-```bash
-wget https://github.com/amadvance/snapraid/releases/download/v12.1/snapraid-12.1.tar.gz
+wget https://github.com/amadvance/snapraid/releases/download/v12.2/snapraid-12.2.tar.gz
 tar xf snapraid-*.tar.gz
 cd snapraid-*
 ./configure
@@ -111,6 +105,8 @@ make
 make check
 make install
 ```
+
+*Package `build-essential` is required
 
 Verify that SnapRAID is installed:
 ```bash
