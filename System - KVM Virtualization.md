@@ -1,18 +1,59 @@
-# System Advanced - KVM Virtualization #
+# System - KVM Virtualization
 
-## Basic Info ##
+## Basic Info
 
 **Description:** Install QEMU/KVM and basic settings  
-**System OS:** Linux Mint 18.02 Cinnamon (x86_64)  
-**Linux kernel version:** 4.8.0-53  
+**System OS:** Ubuntu 22.04 LTS (x86_64)  
+**Linux kernel version:** 5.15
 **QEMU/KVM version:** 2.6.2  
-**CPU:** Intel i7 7700HQ  
-**Date:** 2017.11.06  
+**CPU:** Intel i7 4770
+**Date:** 2022.10.15  
 
-**Source:** [Linux Mint Forums - HOW-TO make dual-boot obsolete using kvm VGA passthrough](http://forums.linuxmint.com/viewtopic.php?f=231&t=212692)  
-**Read more:** [How to setup a gaming virtual machine with GPU passthrough (QEMU, KVM, libvirt, and VFIO) ](http://www.se7ensins.com/forums/threads/how-to-setup-a-gaming-virtual-machine-with-gpu-passthrough-qemu-kvm-libvirt-and-vfio.1371980/)  
-**Read more:** [Ubuntu Forums - Windows Gaming VM - KVM / UEFI Version - HowTo](http://ubuntuforums.org/showthread.php?t=2266916)
+## Installation
 
+Install on host computer
+```shell
+sudo apt install -y qemu qemu-kvm qemu-system libvirt-daemon libvirt-daemon-system libvirt-clients virtinst bridge-utils
+```
+
+Install on host to manage guests
+```shell
+sudo apt install -y libguestfs-tools virt-top 
+```
+
+Install GUI to manage the guests
+```shell
+sudo apt install -y virt-manager
+```
+
+Install UEFI Firmware for Virtual Machines
+```shell
+sudo apt install -y ovmf 
+```
+
+## Add bridge networking
+[TODO]
+
+## 
+
+
+
+
+
+## Sources
+
+- [How to Install KVM on Ubuntu 22.04 (Jammy Jellyfish)](https://www.linuxtechi.com/how-to-install-kvm-on-ubuntu-22-04/)
+- [Server World - KVM](https://www.server-world.info/en/note?os=Ubuntu_22.04&p=kvm&f=1)
+- [Virtualization Tuning and Optimization Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_tuning_and_optimization_guide/index)
+- [gentoo linux -QEMU](https://wiki.gentoo.org/wiki/QEMU)
+- [QEMU -  A generic and open source machine emulator and virtualizer](https://www.qemu.org/)
+
+## Troubleshooting
+
+- [virt-sysprep error Domain not found: no domain with matching name](https://askubuntu.com/questions/1415438/virt-sysprep-error-domain-not-found-no-domain-with-matching-name)
+
+
+-------------------
 
 ## Turn IOMMU ON ##
 
@@ -187,3 +228,5 @@ spicy -h localhost -p 5900
 ```sh
 virsh edit BOXNAME
 ```
+
+
