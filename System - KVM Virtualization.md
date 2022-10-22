@@ -13,12 +13,12 @@
 
 Install on host computer
 ```shell
-sudo apt install -y qemu qemu-kvm qemu-system libvirt-daemon libvirt-daemon-system libvirt-clients virtinst bridge-utils
+sudo apt install -y qemu-system libvirt-daemon-system bridge-utils
 ```
 
 Install on host to manage guests
 ```shell
-sudo apt install -y libguestfs-tools virt-top 
+sudo apt install -y virtinst libguestfs-tools virt-top 
 ```
 
 Install GUI to manage the guests
