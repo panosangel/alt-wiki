@@ -41,8 +41,13 @@ sudo usermod -aG libvirt $USER
 ## Create network bridge (br0)
 [TODO]
 
-## 
+## Enable and Check daemon
 
+```shell
+sudo systemctl enable libvirtd
+sudo systemctl start libvirtd
+sudo systemctl check libvirtd
+```
 
 
 
