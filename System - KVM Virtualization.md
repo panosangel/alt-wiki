@@ -2,12 +2,12 @@
 
 ## Basic Info
 
-**Description:** Install QEMU/KVM and basic settings  
-**System OS:** Ubuntu 22.04 LTS (x86_64)  
-**Linux kernel version:** 5.15
-**QEMU/KVM version:** 2.6.2  
-**CPU:** Intel i7 4770
-**Date:** 2022.10.15  
+- **Description:** Install QEMU/KVM and basic settings
+- **System OS:** Ubuntu 22.04 LTS (x86_64)
+- **Linux kernel version:** 5.15
+- **QEMU/KVM version:** 6.2
+- **CPU:** Intel i7 4770
+- **Date:** 2022.10.15
 
 ## Installation
 
