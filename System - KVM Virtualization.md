@@ -31,7 +31,14 @@ Install UEFI Firmware for Virtual Machines
 sudo apt install -y ovmf 
 ```
 
-## Add bridge networking
+## Add managing user to new groups
+
+```shell
+sudo usermod -aG kvm $USER
+sudo usermod -aG libvirt $USER 
+```
+
+## Create network bridge (br0)
 [TODO]
 
 ## 
