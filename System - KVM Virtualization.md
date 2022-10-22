@@ -68,47 +68,6 @@ sudo systemctl check libvirtd
 
 -------------------
 
-## Turn IOMMU ON ##
-
-Edit grub settings:
-
-```sh
-sudo nano /etc/default/grub
-```
-
-Add/edit as follows:
-
-```
-GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on"
-```
-
-```sh
-sudo update-grub
-```
-**Reboot system.**
-
-Then check if everything works ok.
-
-```sh
-dmesg | grep "Virtualization Technology for Directed I/O"
-```
-
-## Install necessary packages ##
-
-Get the latest version from PPA.
-
-```sh
-sudo add-apt-repository ppa:jacob/virtualisation
-sudo apt-get update
-```
-
-```sh
-sudo apt-get install qemu-kvm qemu-utils
-sudo apt-get install libvirt-bin libvirt-dev virt-manager bridge-utils
-sudo apt-get install virt-viewer spice-client-gtk python-spice-client-gtk
-sudo apt-get install seabios
-```
-
 ## Load necessary modules on startup ##
 
 ```sh
@@ -128,14 +87,6 @@ Update the initramfs.
 ```sh
 sudo update-initramfs -u
 ```
-
-## Enable networking - Setting up bridge interface ##
-
-See the specific guide `System Advanced - Nework Bridge for QEMU/KVM`
-
-or
-
-[Define a network bridge using Ubuntu’s / Linux Mint’s Network Manager application](https://heiko-sieger.info/define-a-network-bridge-using-ubuntus-linux-mints-network-manager-application/)  
 
 ## Various Checks ##
 
