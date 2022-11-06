@@ -2,19 +2,19 @@
 
 ## Install Samba
 
-```bash
+```shell
 sudo apt install samba smbclient cifs-utils
 ```
 
 ## Create a public folder to share
 
 Next, create the public folder where everyone should have access to as is defined in the Samba configuration.
-```bash
+```shell
 sudo mkdir -p /mnt/storage/public
 ```
 
 Set the permissions so that everyone can read and write to it.
-```bash
+```shell
 sudo chown -R nobody:nogroup /mnt/storage/public
 sudo chmod -R 0775 /mnt/storage/public
 ```
@@ -22,29 +22,29 @@ sudo chmod -R 0775 /mnt/storage/public
 ## Samba group & users
 
 Create a user group for the private group shares:
-```bash
+```shell
 sudo addgroup <common-group>
 ```
 
 Then add an **existing system user** to the group by running the commands below:
-```bash
+```shell
 sudo usermod -aG <common-group> <username>
 ```
 
 Finally, all users who need to access a protected samba share will need to type a password.
 Samba has its own user management system. However, any user existing on the samba user list must also exist within the /etc/passwd file.
 Samba doesn't use the system account password, so we need to set up a Samba password for our user account:
-```bash
+```shell
 sudo smbpasswd -a <username>
 ```
 
 Edit an **existing samba user's** password with:
-```bash
+```shell
 sudo smbpasswd <username>
 ```
 
 Finally, list all samba users:
-```bash
+```shell
 sudo pdbedit -L -v
 ```
 
@@ -65,7 +65,7 @@ If not done already (_See the [Users & Filesystem](System%20-%20Users%20&%20File
 ## Configure Samba
 
 Make a backup copy of the configuration file and edit it:
-```bash
+```shell
 sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.ORIGINAL
 sudo nano /etc/samba/smb.conf
 ```
@@ -128,7 +128,7 @@ testparm
 ```
 
 Restart the daemon:
-```bash
+```shell
 sudo systemctl restart smbd
 ```
 
@@ -160,7 +160,7 @@ Total Commander + LAN plugin.
 
 ## Firewall rules
 
-```bash
+```shell
 sudo ufw allow from 192.168.1.0/24 to any port 139,445 proto tcp
 sudo ufw allow from 192.168.1.0/24 to any port 137,138 proto udp
 ```
