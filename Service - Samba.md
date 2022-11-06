@@ -3,7 +3,7 @@
 ## Install Samba
 
 ```bash
-sudo apt-get install samba
+sudo apt install samba smbclient cifs-utils
 ```
 
 ## Create a public folder to share
@@ -31,7 +31,8 @@ Then add an **existing system user** to the group by running the commands below:
 sudo usermod -aG <common-group> <username>
 ```
 
-Finally, all users who need to access a protected samba share will need to type a password.  
+Finally, all users who need to access a protected samba share will need to type a password.
+Samba has its own user management system. However, any user existing on the samba user list must also exist within the /etc/passwd file.
 Samba doesn't use the system account password, so we need to set up a Samba password for our user account:
 ```bash
 sudo smbpasswd -a <username>
@@ -79,6 +80,10 @@ Configuration example:
 
   log file = /var/log/samba/%m.log
   max log size = 1000
+  logging = file
+
+  passwd program = /usr/bin/passwd %u
+  passwd chat = *Enter\snew\s*\spassword:* %n\n *Retype\snew\s*\spassword:* %n\n *password\supdated\ssuccessfully* .
 
   server role = standalone server
   obey pam restrictions = yes
@@ -92,9 +97,10 @@ Configuration example:
   comment = Public anonymous access
   path = /mnt/storage/public
   guest ok = yes
+  guest only = yes
   writable = yes
-  create mask = 0664
-  directory mask = 0775
+  force create mode = 775
+  force directory mode = 775
   force user = nobody
 
 [common]
@@ -102,16 +108,17 @@ Configuration example:
   path = /mnt/storage/common
   writable = yes
   valid users = @commom
-  create mask = 0660
-  directory mask = 0770
+  force create mode = 770
+  force directory mode = 770
+  inherit permissions = yes
 
 [homes]
   comment = Home storage area of %S
   path = /mnt/storage/%S
   writable = yes
   valid users = %S
-  create mask = 0660
-  directory mask = 0770
+  force create mode = 770
+  force directory mode = 770
 ```
 
 It is  recommended that you verify the Samba configuration each time you update the /etc/samba/smb.conf file using the `testparm` utility
@@ -172,3 +179,5 @@ sudo ufw allow from 192.168.1.0/24 to any port 137,138 proto udp
 - [O'Reilly Samba book - Table C.1: Variables in Alphabetic Order](https://www.oreilly.com/openbook/samba/book/appc_01.html#appc-88529)
 - [Configure Samba to Bind to Specific Interfaces](https://wiki.samba.org/index.php/Configure_Samba_to_Bind_to_Specific_Interfaces)
 - [Samba AD DC Port Usage](https://wiki.samba.org/index.php/Samba_AD_DC_Port_Usage)
+- [Easily Install and Configure Samba File Server on Ubuntu 22.04](https://kifarunix.com/easily-install-and-configure-samba-file-server-on-ubuntu-22-04/)
+- [A big change for Samba in Ubuntu 22.04 and how to get around it](https://www.techrepublic.com/article/big-change-samba-ubuntu/)
