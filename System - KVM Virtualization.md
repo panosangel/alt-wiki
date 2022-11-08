@@ -13,8 +13,10 @@
 
 Install on host computer
 ```shell
-sudo apt install -y qemu-system libvirt-daemon-system bridge-utils
+sudo apt install -y libvirt-daemon-system bridge-utils
 ```
+
+**Note:** Packages such as: `qemu-kvm` and `qemu-system` include a subset of the above.
 
 Install on host to manage guests
 ```shell
@@ -24,11 +26,6 @@ sudo apt install -y virtinst libguestfs-tools virt-top
 Install GUI to manage the guests
 ```shell
 sudo apt install -y virt-manager
-```
-
-Install UEFI Firmware for Virtual Machines
-```shell
-sudo apt install -y ovmf 
 ```
 
 ## Add managing user to new groups
