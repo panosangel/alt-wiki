@@ -51,14 +51,24 @@ sudo systemctl check libvirtd
 
 ## Sources
 
-- [How to Install KVM on Ubuntu 22.04 (Jammy Jellyfish)](https://www.linuxtechi.com/how-to-install-kvm-on-ubuntu-22-04/)
-- [Server World - KVM](https://www.server-world.info/en/note?os=Ubuntu_22.04&p=kvm&f=1)
-- [Virtualization Tuning and Optimization Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_tuning_and_optimization_guide/index)
-- [gentoo linux -QEMU](https://wiki.gentoo.org/wiki/QEMU)
+### Tools
+
 - [QEMU -  A generic and open source machine emulator and virtualizer](https://www.qemu.org/)
+- [gentoo linux -QEMU](https://wiki.gentoo.org/wiki/QEMU)
 - [Arch - libvirt](https://wiki.archlinux.org/title/libvirt)
 
-## Troubleshooting
+### Guides
+
+- [How to Install KVM on Ubuntu 22.04 (Jammy Jellyfish)](https://www.linuxtechi.com/how-to-install-kvm-on-ubuntu-22-04/)
+- [Mathias Hueber - All you need to know about PCI passthrough in Windows 11 virtual machines on Ubuntu 22.04 based distributions](https://mathiashueber.com/passthrough-windows-11-vm-ubuntu-22-04/)
+- [Server World - KVM](https://www.server-world.info/en/note?os=Ubuntu_22.04&p=kvm&f=1)
+- [Virtualization Tuning and Optimization Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_tuning_and_optimization_guide/index)
+
+### Networking
+
+- [Fabian Lee - KVM: Creating a bridged network with NetPlan on Ubuntu 22.04](https://fabianlee.org/2022/09/20/kvm-creating-a-bridged-network-with-netplan-on-ubuntu-22-04/)
+
+### Troubleshooting
 
 - [virt-sysprep error Domain not found: no domain with matching name](https://askubuntu.com/questions/1415438/virt-sysprep-error-domain-not-found-no-domain-with-matching-name)
 
