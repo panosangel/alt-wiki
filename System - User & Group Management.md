@@ -172,3 +172,8 @@ delgroup GROUP
 - [Linuxize - How to Delete Group in Linux (groupdel Command)](https://linuxize.com/post/how-to-delete-group-in-linux/)
 - [Add a User to a Group (or Second Group) on Linux](https://www.howtogeek.com/50787/add-a-user-to-a-group-or-second-group-on-linux/)
 - [UNIX / Linux : How to lock or disable an user account](https://www.thegeekdiary.com/unix-linux-how-to-lock-or-disable-an-user-account/)
+
+### Change user and group ID
+
+- [How to (Correctly) Change the UID and GID of a user/group in Linux](https://www.thegeekdiary.com/how-to-correctly-change-the-uid-and-gid-of-a-user-group-in-linux/)
+- [How to Change a USER and GROUP ID on Linux For All Owned Files](https://www.cyberciti.biz/faq/linux-change-user-group-uid-gid-for-all-owned-files/)
