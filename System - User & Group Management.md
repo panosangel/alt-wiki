@@ -81,6 +81,24 @@ or
 usermod -s SHELL USERNAME
 ```
 
+## Lock user's account
+
+```shell
+ usermod -s /sbin/nologin USERNAME
+```
+
+or
+
+```shell
+usermod -L USERNAME
+```
+
+or
+
+```shell
+passwd -l USERNAME
+```
+
 ## Remove user
 
 ```shell
@@ -152,3 +170,5 @@ delgroup GROUP
 - [Linuxize - How to Add User to Group in Linux](https://linuxize.com/post/how-to-add-user-to-group-in-linux/)
 - [Linuxize - How to Create Groups in Linux (groupadd Command))](https://linuxize.com/post/how-to-create-groups-in-linux/)
 - [Linuxize - How to Delete Group in Linux (groupdel Command)](https://linuxize.com/post/how-to-delete-group-in-linux/)
+- [Add a User to a Group (or Second Group) on Linux](https://www.howtogeek.com/50787/add-a-user-to-a-group-or-second-group-on-linux/)
+- [UNIX / Linux : How to lock or disable an user account](https://www.thegeekdiary.com/unix-linux-how-to-lock-or-disable-an-user-account/)
