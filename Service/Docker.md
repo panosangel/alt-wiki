@@ -1,23 +1,29 @@
 # Docker
 
 ## Install Docker CE for Ubuntu
+
 [Official Guide](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
 
 ## Install Docker Compose
+
 [Official Guide](https://docs.docker.com/compose/install/)
 
 ## Add managing users
-```bash
+
+```shell
 sudo usermod -aG docker <my-local-username>
 ```
 
 ## Test docker
+
 Verify that the docker service is running:
-```bash
+```shell
 systemctl status docker
 ```
+
  Run the first container:
-```bash
+```shell
 docker run --rm hello-world
 ```
+
 Enjoy!!
