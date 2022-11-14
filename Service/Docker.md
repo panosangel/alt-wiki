@@ -1,4 +1,4 @@
-# Service - Docker
+# Docker
 
 ## Install Docker CE for Ubuntu
 [Official Guide](https://docs.docker.com/install/linux/docker-ce/ubuntu/)

@@ -1,4 +1,4 @@
-# System - MergerFS & SnapRAID
+# MergerFS & SnapRAID
 
 ## Disk Devices
 

@@ -1,4 +1,4 @@
-# Service - Samba
+# Samba
 
 ## Install Samba
 

@@ -1,4 +1,4 @@
-# Command - Git
+# Git
 
 ## Initialize
 In the project's folder run:

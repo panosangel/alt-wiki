@@ -1,4 +1,4 @@
-# System - Swap
+# Swap
 
 ## 1. Existing swap
 First check if the system has any swap configured.

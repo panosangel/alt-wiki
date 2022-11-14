@@ -1,4 +1,4 @@
-# Service - fail2ban
+# fail2ban
 
 ## Basic configuration
 Install package:

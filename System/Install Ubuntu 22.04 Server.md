@@ -1,4 +1,4 @@
-# System - Install Ubuntu 22.04 Server
+# Install Ubuntu 22.04 Server
 
 ## Installation settings
 

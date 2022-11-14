@@ -1,4 +1,4 @@
-# Command - Rclone
+# Rclone
 
 ## Install
 

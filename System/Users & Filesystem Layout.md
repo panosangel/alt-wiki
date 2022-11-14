@@ -1,4 +1,4 @@
-# System - Users & Filesystem Layout
+# Users & Filesystem Layout
 
 ## Strategy
 

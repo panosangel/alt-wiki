@@ -1,4 +1,4 @@
-# Service - SSH
+# SSH Server
 
 ## Create strong cryptographic keys on the server
 

@@ -1,4 +1,4 @@
-# Command - GnuPG
+# GnuPG
 
 ## Install
 If not installed, run:

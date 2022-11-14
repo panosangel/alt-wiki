@@ -1,4 +1,4 @@
-# System - Networking
+# Networking
 
 ## 1. Configure network adapter
 In Ubuntu 18.04, the network is configured with Netplan and the configuration file is `/etc/netplan/*.yaml`. The traditional network configuration file `/etc/network/interfaces` is not used anymore.

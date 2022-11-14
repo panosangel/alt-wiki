@@ -1,4 +1,4 @@
-# System - Root Account Hardening
+# Root Account Hardening
 
 ## Protect `root` user
 
