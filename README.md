@@ -23,6 +23,7 @@ Guides and personal documentation for popular system services and applications
 - fail2ban
 - Gitea
 - Nginx
+- Pi-hole
 - Postgres
 - Samba
 - SSH Server
