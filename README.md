@@ -1,7 +1,36 @@
 # alt-wiki
+
 Guides and personal documentation for popular system services and applications
 
+## Applications
+
+- JetBrains WebStorm
+- VS Code
+
+## Commands
+
+- Git
+- Git-Flow
+- GnuPG
+- Rclone
+- Rsync
+- SSH
+
+## Services
+
+- Deluge
+- Docker
+- fail2ban
+- Gitea
+- Nginx
+- Pi-hole
+- Postgres
+- Samba
+- SSH Server
+
 ## System
+
+- Backup OS
 - Datetime sync
 - Disk Management
 - Install Ubuntu 18.04 Server
@@ -12,34 +41,11 @@ Guides and personal documentation for popular system services and applications
 - Root Account Hardening
 - Swap
 - UFW
+- User & Group Management
 - Users & Filesystem Layout
 
-## Services
-- Deluge
-- Docker
-- fail2ban
-- Gitea
-- Nginx
-- Postgres
-- Samba
-- SSH
-
-## Security
-- TODO
-
-## Commands
-- Git
-- Git-Flow
-- SSH
-- GnuPG
-- Rclone
-- Rsync
-
-## Applications
-- JetBrains WebStorm
-- VS Code
-
 ## Various
+
 - CD Ripping
 - Encrypt Data Disk
 - Let's Encrypt w/ certbot
