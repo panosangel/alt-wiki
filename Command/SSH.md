@@ -1,4 +1,4 @@
-# Command - SSH
+# SSH
 
 ## Create keypair 
 RSA 4096bit key with comment:

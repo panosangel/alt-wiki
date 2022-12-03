@@ -1,4 +1,4 @@
-# System - UFW
+# UFW
 
 ## Basic operations 
 Check status

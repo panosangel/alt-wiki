@@ -1,4 +1,4 @@
-# System - Install Ubuntu 18.04 Server
+# Install Ubuntu 18.04 Server
 
 ## Installation settings
 - **OS:** Ubuntu 18.04 LTS

@@ -1,61 +1,44 @@
-# Service - Nginx
+# Nginx
 
 ## Prerequisites
-Using the power of `Docker` we can install `Deluge` in a moment!
-Docker and docker-compose must be already installed. 
-_See the appropriate guide for more!_
+
+Docker and docker-compose must be already installed. _See the appropriate guide for more!_
 
 ## Install NGINX
+
 1. Get it from [DockerHub - linuxserver/nginx](https://hub.docker.com/r/linuxserver/nginx)
 2. Create the `docker-compose.yml`
-    ```bash
+    ```shell
     touch ~/docker/nginx/docker-compose.yml
     ```
 3.  Add content from the link (1)
-    ```docker
-    version: "2"
+    ```yaml
+    ---
+    version: "2.1"
     services:
       nginx:
-        image: linuxserver/nginx
+        image: lscr.io/linuxserver/nginx:latest
         container_name: nginx
         environment:
-          - PUID=1001
-          - PGID=1001
+          - PUID=1000
+          - PGID=1000
           - TZ=Europe/London
         volumes:
           - </path/to/appdata/config>:/config
         ports:
           - 80:80
           - 443:443
-        mem_limit: 4096m
         restart: unless-stopped
     ```
-    And how it finally looks:
-    ```docker
-    version: "3.7"
-    
-    services:
-      webserver:
-        image: linuxserver/nginx:latest
-        container_name: nginx
-        environment:
-          - PUID=1000
-          - PGID=1000
-          - TZ=Europe/Athens
-        volumes:
-          - ./config:/config
-          - /etc/letsencrypt:/etc/letsencrypt
-        ports:
-          - "80:80"
-          - "443:443"
-        restart: always
-    ```
+4. Adjust the uid/gid, the volume paths and save.
 
-## Basic Configuration
+## Basic Configuration [TO BE VERIFIED]
+
 Edit the main configuration file:
-```bash
+```shell
 nano ~/docker/nginx/config/nginx/nginx.conf
 ```
+
 Add/edit the following content:
 ```
 worker_processes auto;
@@ -123,6 +106,7 @@ http {
 ```
 
 ### What does the code above?
+
 1. With `proxy_set_header` directives we bypass the default Nginx behavior and apply the most common production settings.
 2. [OPTIONAL] Declare a service under the alias `python-dev` which resolves to `ip:port`.
 If we connect to another docker container we change it to `container_name:port`
@@ -133,13 +117,15 @@ If we connect to another docker container we change it to `container_name:port`
     ```
 
 ## Add Virtual Hosts
+
 **Note:** Because of the line `include /config/nginx/site-confs/*.conf;` in the main config file,
 in order for a vhost config to be enabled it must have `.conf` extension. Otherwise it is ignored!
 
 Add a virtual host:
-```bash
+```shell
 nano ~/docker/nginx/config/nginx/site-confs/dev.domain.tld.conf
 ```
+
 ```
 server {
     server_name dev.domain.tld;
@@ -155,6 +141,7 @@ server {
 ```
 
 ### What does the code above?
+
 1. The `server` directive registers... a server! By default the server `listen`'s on port 80.
 Any request that is directed to `server_name` and the specific `location` are proxied to `proxy_pass` service.
 2. [OPTIONAL] If an `upstream` directive has been declared in the main config, that alias can be used in the `proxy_pass`.
@@ -168,6 +155,7 @@ Any request that is directed to `server_name` and the specific `location` are pr
 6. Enjoy!
 
 ## Optional - Enable SSL per vhost
+
 1. Get the SSL certificates. _See the appropriate guide for more!_
 2. We assume that they are stored at `/etc/letsencrypt`
 3. Check the permissions of your docker user regarding the keys and make the appropriate changes.
@@ -209,19 +197,21 @@ Any request that is directed to `server_name` and the specific `location` are pr
 6. Reload server to get new configuration and test it with [SSL Labs](https://www.ssllabs.com/index.html).
 
 ## Firewall rules
+
 Allow incoming connections:
-```bash
+```shell
 sudo ufw allow from any to any port 80,443 proto tcp
 ```
 **Note:** The modem/router NAT should be configured accordingly to allow incoming connections to the server.
 
 ## Optional - Firewall rules for proxied services
+
 Allow incoming connections from docker bridge interfaces (network_mode: bridge). This is the default docker mode.
-```bash
+```shell
 sudo ufw allow from 172.0.0.0/8
 ```
 or per service:
-```
+```shell
 sudo ufw allow from 172.0.0.0/8 to any port <service_port> proto tcp
 ```
 
@@ -229,6 +219,7 @@ sudo ufw allow from 172.0.0.0/8 to any port <service_port> proto tcp
 **Note 2:** docker compose adds all containers in the same network so the above is not needed.
 
 ## Appendix A - Sources
+
 - [Setting up a Reverse-Proxy with Nginx and docker-compose](https://dev.to/domysee/setting-up-a-reverse-proxy-with-nginx-and-docker-compose-29jg)
 - [Docker compose : NGINX reverse proxy with multiple containers](https://www.bogotobogo.com/DevOps/Docker/Docker-Compose-Nginx-Reverse-Proxy-Multiple-Containers.php)
 - [Use NGINX As A Reverse Proxy To Your Containerized Docker Applications](https://www.thepolyglotdeveloper.com/2017/03/nginx-reverse-proxy-containerized-docker-applications/)

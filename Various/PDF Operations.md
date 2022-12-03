@@ -1,4 +1,4 @@
-# Various - PDF Operations
+# PDF Operations
 
 ## Compress a file
 

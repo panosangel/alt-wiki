@@ -1,4 +1,4 @@
-# Various - Postgres Database Management
+# Postgres Database Management
 
 ## Manage databases
 List all dbs:

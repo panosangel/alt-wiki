@@ -1,4 +1,4 @@
-# Service - Postgres
+# Postgres
 
 ## Prerequisites
 Using the power of `Docker` we can install `Postgres` in a moment!

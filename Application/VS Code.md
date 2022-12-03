@@ -1,4 +1,4 @@
-# Application - VS Code
+# VS Code
 
 ## Installation
 

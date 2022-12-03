@@ -1,72 +1,60 @@
-# Service - Deluge (headless)
+# Deluge (headless)
 
 ## Prerequisites
-Using the power of `Docker` we can install `Deluge` in a moment!
-Docker and docker-compose must be already installed. 
-_See the appropriate guide for more!_
+
+Docker and docker-compose must be already installed. _See the relevant guide for more!_
 
 ## Install Deluge
+
 1. Get it from [DockerHub - linuxserver/deluge](https://hub.docker.com/r/linuxserver/deluge)
 2. Create the `docker-compose.yml`
-    ```bash
+    ```shell
     touch ~/docker/deluge/docker-compose.yml
     ```
 3.  Add content from the link (1)
-    ```bash
+    ```shell
      nano ~/docker/deluge/docker-compose.yml
     ```
     Template:
-    ```docker
-    version: "2"
+    ```yaml
+    ---
+    version: "2.1"
     services:
       deluge:
-        image: linuxserver/deluge
+        image: lscr.io/linuxserver/deluge:latest
         container_name: deluge
-        network_mode: host
-        environment:
-          - PUID=1001
-          - PGID=1001
-          - UMASK_SET=<022>
-          - TZ=<timezone>
-        volumes:
-          - </path/to/deluge/config>:/config
-          - </path/to/your/downloads>:/downloads
-        mem_limit: 4096m
-        restart: unless-stopped
-    ```
-    And how it finally looks:
-
-    ```docker
-    version: "2"
-    services:
-      deluge:
-        image: linuxserver/deluge:latest
-        container_name: deluge
-        network_mode: host
         environment:
           - PUID=1000
           - PGID=1000
-          - UMASK_SET=022
-          - TZ=Europe/Athens
+          - TZ=Europe/London
+          - DELUGE_LOGLEVEL=error #optional
         volumes:
-          - ./config:/config
-          - ./downloads:/downloads
-        mem_limit: 4096m
-        restart: always
+          - /path/to/deluge/config:/config
+          - /path/to/your/downloads:/downloads
+        ports:
+          - 8112:8112
+          - 6881:6881
+          - 6881:6881/udp
+        restart: unless-stopped
     ```
 
+4. Adjust the uid/gid, the volume paths and save.
+
 ## Initialize & Configure
+
 Fire up:
-```bash
+```shell
 docker-compose up
 ```
-The first time the image will create all the necessary configuration files.
 
-Then bring the container down so we can edit the files safely.
-```bash
+The first time the image will create all the necessary configuration files.
+**Then bring the container down so we can edit the files safely.**
+
+```shell
 nano ~/docker/deluge/config/core.conf
 ```
-Change the following:
+
+Change the following according to your needs:
 ```
   "move_completed_path": "/downloads/completed",
   "rate_limit_ip_overhead": true,
@@ -101,24 +89,29 @@ Change the following:
   "add_paused": true,
   "autoadd_location": "/downloads/autoadd",
 ```
-Save and restart container.
+
+**Save and restart container.**
 
 ## Firewall rules
+
 Allow remote connections to the daemon (only from local machines):
-```bash
+```shell
 sudo ufw allow from 192.168.1.0/24 to any port 58846 proto tcp
 ```
+
 Range of incoming ports:
-```bash
+```shell
 sudo ufw allow from any to any port 51680:51690 proto tcp
 ```
+
 **Note:** The modem/router NAT should be configured accordingly to allow incoming connections to the server.
 
 ## Optional - Remote Deluge host
 
 ### Create link to remote deluge host
+
 In the client's box run:
-```bash
+```shell
 ssh -i ~/.ssh/id_rsa_user -fNT -L 58802:127.0.0.1:58846 <remote_user>@<deluge_running_host_ip>
 ```
 
@@ -139,12 +132,14 @@ Add/edit the `~/docker/deluge/config/core.conf` to include the following
     ...
   },
 ```
+
 Create the tunnel with the proxy server.
-```bash
+```shell
 ssh -p <sshd_port> -i <private_key_path> -D 9090 -f -C -q -N <remote_user>@<remote_proxy_ip>
 ```
+
 or make it _persistent_ using autossh:
-```bash
+```shell
 autossh -M 0 -f -p <sshd_port> -C -q -N -i <private_key_path> -D 9090 <remote_user>@<remote_proxy_ip>
 ```
 Add the following .torrent in the client and it should give an 'error' followed by the current gateway ip.

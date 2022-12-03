@@ -1,4 +1,4 @@
-# Application - JetBrains WebStorm
+# JetBrains WebStorm
 
 ## Recommended plugins
 
