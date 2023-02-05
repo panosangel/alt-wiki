@@ -55,17 +55,17 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, 
     padding: 0;
 }
 
-
-html {
+:root {
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%; /*  Prevent adjustments of font size after orientation changes in iOS. */
 }
 
 body {
     min-height: 100vh;
-    line-height: 1.5;
     overflow-x: hidden;
-    text-rendering: optimizeSpeed;
-    -webkit-font-smoothing: antialiased;
 }
 
 a, :link, :visited {
