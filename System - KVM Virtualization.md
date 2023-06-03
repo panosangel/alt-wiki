@@ -67,6 +67,7 @@ sudo systemctl check libvirtd
 ### Networking
 
 - [Fabian Lee - KVM: Creating a bridged network with NetPlan on Ubuntu 22.04](https://fabianlee.org/2022/09/20/kvm-creating-a-bridged-network-with-netplan-on-ubuntu-22-04/)
+- [How do I configure DHCP bridge with netplan for KVM on Ubuntu 18.04 LTS?](https://askubuntu.com/questions/1111768/how-do-i-configure-dhcp-bridge-with-netplan-for-kvm-on-ubuntu-18-04-lts)
 
 ### Troubleshooting
 
