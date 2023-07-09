@@ -5,29 +5,17 @@
 ### Productivity
 
 - `Key Promoter X` by Hal's Corner
-- `Force Shortcuts` by Trey Trahin
 - `Rainbow Brackets` by izhangzhihao
-- `LiveEdit` by JetBrains
 
 ### Themes & Icons
 
+- `One Dark Theme` by Mark Skelton
 - `Material Theme UI` by Atom Material Themes & Plugins
 - `Atom Material Icons` by Atom Material Themes & Plugins
-- `Gradianto` by thvarhan
-
-### JavaScript
-
-- `Quokka` by Wallaby.js
-
-### Tools
-
-- `nx-webstorm` by etkachev
-- `Database Navigator` by Dan Cioca
 
 ### Miscellaneous
 
 - `Import Cost` by Dennis Ushakov, Andrey Starovoyt
-- `IDEA Mind Map` by Igor Maznitsa
 - `WakaTime` by WakaTme
 
 ## Preferences
