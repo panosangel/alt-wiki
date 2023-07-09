@@ -16,6 +16,15 @@ Guides and personal documentation for popular system services and applications
 - Rsync
 - SSH
 
+## Development
+
+- Angular - Best Practices
+- Code Style - Configure Prettier
+- Git for Windows
+- JavaScript - Debugging
+- Node.js - Project Starter with TypeScript
+- Shadow DOM
+
 ## Services
 
 - Deluge
