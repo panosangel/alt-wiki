@@ -117,6 +117,16 @@ plugins=(
 chsh -s /bin/bash
 ```
 
+## Customizing Prompt
+
+**Guides**
+- [Cassidy Williams - Customizing my Zsh Prompt](https://dev.to/cassidoo/customizing-my-zsh-prompt-3417)
+- [Zsh Prompts... Anything is Better than "username@hostname"](https://sureshjoshi.com/development/zsh-prompts-that-dont-suck)
+
+**Platforms**
+- [starship cross-shell prompt](https://starship.rs/)
+- [Powerline](https://github.com/powerline/powerline)
+
 ## Sources
 
 - [Oh My Zsh](https://ohmyz.sh/)
@@ -124,3 +134,4 @@ chsh -s /bin/bash
 - [agnoster.zsh-theme](https://github.com/agnoster/agnoster-zsh-theme)
 - [ZSH: Hide computer name in terminal](https://stackoverflow.com/questions/31848957/zsh-hide-computer-name-in-terminal)
 - [Oh My Zsh “agnoster” theme not showing correct font on VSCode ? (ubuntu)](https://cloverinks.medium.com/oh-my-zsh-agnoster-theme-not-showing-correct-font-on-vscode-ubuntu-47b5e8dcbada)
+- [Z-Shell - A Swiss Army Knife for Zsh Unix shell](https://wiki.zshell.dev/)
