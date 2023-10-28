@@ -3,61 +3,59 @@
 ## Install Zsh
 
 **Linux:**
-```bash
+```Shell
 sudo apt-get install zsh
 ```
 **macOS:**
-```bash
+```Shell
 brew install zsh zsh-completions
 ```
 
 ## Make Zsh the default shell
 
 **Linux:**
-```bash
+```Shell
 chsh -s $(which zsh)
 ```
 **macOS:**
-```bash
+```Shell
 chsh -s /bin/zsh
 ```
 
 ## Install Oh-My-Zsh!
 
-```bash
-
+```Shell
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 or
-```bash
-
+```Shell
 sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 ```
 
 ## Install Extras
 
-```bash
+```Shell
 sudo apt-get install powerline fonts-powerline
 ```
-```shell
+```Shell
 https://github.com/lxbrtsch/Menlo-for-Powerline
 ```
 
 ## Basic Configuration
 
 Edit config file:
-```bash
+```Shell
 nano ~/.zshrc
 ```
 Set a new theme:
-```bash
+```Shell
 ZSH_THEME="agnoster"
 ```
 Save and EXIT.
 
 ## Manual Update
 
-```bash
+```Shell
 cd ~/.oh-my-zsh && ./upgrade_oh_my_zsh
 ```
 
@@ -78,7 +76,7 @@ plugins=(
 ### Show only the username in the prompt
 
 Add/edit on `~/.zshrc`
-```bash
+```Shell
 prompt_context() {
   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
     prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
@@ -88,7 +86,7 @@ prompt_context() {
 
 ### Install and enable zsh-autosuggestions
 
-```bash
+```Shell
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 ```
 Add to `~/.zshrc`
@@ -102,7 +100,7 @@ plugins=(
 
 ### Install and enable  zsh-syntax-highlighting
 
-```bash
+```Shell
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
 Add to `~/.zshrc`
@@ -115,7 +113,7 @@ plugins=(
 
 ## Revert to default Shell
 
-```bash
+```Shell
 chsh -s /bin/bash
 ```
 
