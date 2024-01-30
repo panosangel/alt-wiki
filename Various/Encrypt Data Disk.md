@@ -1,6 +1,7 @@
 # Encrypt Data Disk
 
 ## Install software
+
 ```shell script
 sudo apt-get install cryptsetup
 ```
@@ -10,6 +11,7 @@ sudo modprobe dm-crypt sha256 aes
 ```
 
 ## Gather information
+
 Default options:
 ```shell script
 cryptsetup --help | tail -n 10
@@ -20,6 +22,7 @@ cryptsetup benchmark
 ```
 
 ## Prepare the disk
+
 Find the disk
 ```shell script
 sudo fdisk -l
@@ -50,6 +53,7 @@ sudo blkid
 Note: You can create the LUKS container directly into a disk (i.e. /dev/sdb) instead of an existing partition (i.e. /dev/sdb1).
 
 ## Configure encrypted volume
+
 ```shell script
 sudo cryptsetup --verbose --verify-passphrase luksFormat /dev/<target_device>
 ```
@@ -74,6 +78,7 @@ sudo cryptsetup -v status <NameOfYourChoice>
 ```
 
 ## Format encrypted volume
+
 **(OPTIONAL)** First, you need to write zeros to /dev/mapper/<NameOfYourChoice> encrypted device. This will allocate block data with zeros.  
 This ensures that outside world will see this as random data i.e. it protects against disclosure of usage patterns: 
 ```shell script
@@ -85,6 +90,7 @@ sudo mkfs -t ext4 -m 1 /dev/mapper/<NameOfYourChoice>
 ```
 
 ## Test the encrypted partition
+
 Create a mount point:
 ```shell script
 sudo mkdir /media/<AnotherNameOfYourChoice>
@@ -106,12 +112,14 @@ Try  unmounting to avoid silent mount errors:
 _See instructions below_
 
 ## Unmount and secure data
+
 ```shell script
 sudo umount /media/<AnotherNameOfYourChoice>
 sudo cryptsetup luksClose <NameOfYourChoice>
 ```
 
 ## Mount or remount encrypted partition
+
 ```shell script
 sudo cryptsetup luksOpen /dev/<target_device> <NameOfYourChoice>
 sudo mount /dev/mapper/<NameOfYourChoice> /media/<AnotherNameOfYourChoice>
@@ -120,6 +128,7 @@ sudo mount
 ```
 
 ## Automount on startup (**@TODO Verify**)  
+
 If you run a headless server, you would like your encrypted volume to automount on boot. In this case you need to create a key file that can unlock your volume automatically.
 ```shell script
 sudo dd if=/dev/urandom of=/root/my-keyfile bs=1024 count=128
@@ -147,6 +156,7 @@ sudo systemctl daemon-reload
 ```
 
 ## Backup and restore
+
 Backup:
 ```shell script
 sudo cryptsetup luksHeaderBackup --header-backup-file <file> <target_device>
@@ -163,6 +173,7 @@ sudo cryptsetup --header <file> luksOpen <target_device> /dev/mapper/<NameOfYour
 More: [6. Backup and Data Recovery](https://gitlab.com/cryptsetup/cryptsetup/-/wikis/FrequentlyAskedQuestions#6-backup-and-data-recovery)
 
 ## Manage keys
+
 LUKS containers can actually have multiple passphrases or key files associated with them, up to eight (LUKS1) or thirty-two (LUKS2).
 To start, take a look at your drive and see how many keys it has. Chances are, you’ll only see key slot 0 occupied. That’s the first one.
 ```shell script
@@ -188,6 +199,7 @@ sudo cryptsetup luksRemoveKey <target_device>
 ```
 
 ## Appendix A - Sources
+
 - [wikibooks - Cryptsetup](https://en.wikibooks.org/wiki/Cryptsetup)
 - [The awesome garage - Encrypt external hard drives with Linux](https://theawesomegarage.com/blog/encrypt-external-hard-drives-with-linux)
 - [Average Linux User - Encrypt your Hard Drive in Linux](https://averagelinuxuser.com/encrypt-hard-drive-in-linux/)
@@ -198,6 +210,7 @@ sudo cryptsetup luksRemoveKey <target_device>
 - [Make Tech Easier - How to Change Your LUKS Encryption Passphrase](https://www.maketecheasier.com/change-luks-encryption-passphrase/)
 
 ## Appendix B - More
+
 - [Archlinux - dm-crypt/Device encryption](https://wiki.archlinux.org/index.php/Dm-crypt/Device_encryption)
 - [GitLab - Frequently Asked Questions Cryptsetup/LUKS](https://gitlab.com/cryptsetup/cryptsetup/-/wikis/FrequentlyAskedQuestions)
 - [LUKS On-Disk Format Specification](https://gitlab.com/cryptsetup/cryptsetup/wikis/LUKS-standard/on-disk-format.pdf)
