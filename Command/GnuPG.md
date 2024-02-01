@@ -36,6 +36,11 @@ gpg --list-secret-keys --keyid-format LONG
 ```shell
 gpg --output mygpgkey_sec.asc --armor --export-secret-key <gpg_key_id>
 ```
+or
+```shell
+gpg --output mygpgkey_sec.asc --armor --export-secret-keys --export-options export-backup <gpg_key_id>
+```
+Read more:  [How to export a GPG private key and public key to a file](https://unix.stackexchange.com/questions/481939/how-to-export-a-gpg-private-key-and-public-key-to-a-file)
 
 ### Import private key
 
