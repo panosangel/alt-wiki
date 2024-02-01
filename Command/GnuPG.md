@@ -21,7 +21,7 @@ gpg --full-generate-key
 Choose:
 - RSA and RSA (default)
 - 4096bit size
-- Valid 1y
+- Valid 2y
 
 ## Manage Private Keys
 
