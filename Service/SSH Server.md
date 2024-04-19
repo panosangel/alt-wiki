@@ -76,6 +76,12 @@ AllowTcpForwarding no
 Match Group common
   AllowTcpForwarding yes
 ```
+
+Test the syntactic validity of the configuration
+```shell
+sudo sshd -t
+```
+
 Restart daemon to apply new settings:
 ```bash
 sudo systemctl restart ssh
