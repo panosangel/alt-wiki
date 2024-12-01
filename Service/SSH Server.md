@@ -52,27 +52,20 @@ ListenAddress XXX.XXX.XXX.XXX # to be changed with the real server IP
 
 HostKey /etc/ssh/ssh_host_rsa_key
 HostKey /etc/ssh/ssh_host_ed25519_key
+HostKey /etc/ssh/ssh_host_ecdsa_key
 
-LoginGraceTime 120
 PermitRootLogin no
-StrictModes yes
-MaxAuthTries 6
-AllowGroups localuser common
-PubkeyAuthentication yes
-
-HostbasedAuthentication no
-IgnoreRhosts yes
 PasswordAuthentication no
-PermitEmptyPasswords no
-ChallengeResponseAuthentication no
-UsePAM yes
+PubkeyAuthentication yes
+MaxAuthTries 3
+
 X11Forwarding no
 
 ClientAliveInterval 300
 ClientAliveCountMax 3
 
-Compression delayed
-AllowTcpForwarding no
+AllowGroups localuser common
+
 Match Group common
   AllowTcpForwarding yes
 ```
