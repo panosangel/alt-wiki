@@ -3,45 +3,53 @@
 ## Create strong cryptographic keys on the server
 
 Use a **stronger** Diffie-Hellman Algorithm
-```bash
+```shell
 mkdir /tmp/moduli && cd /tmp/moduli
 ssh-keygen -M generate -O bits=2048 moduli-2048.candidates
-ssh-keygen -M screen -f moduli-2048.candidates moduli-2048
+ssh-keygen -M screen moduli-2048 -f moduli-2048.candidates
 cp moduli-2048 /etc/ssh/moduli
 rm moduli-2048
 ```
 
-Re-generate the RSA and ED25519 keys
-```
+Re-generate the RSA, ED25519 and ECDSA keys just to be on the safe side
+```shell
 sudo rm /etc/ssh/ssh_host_*  
 sudo ssh-keygen -t rsa -b 4096 -f /etc/ssh/ssh_host_rsa_key 
 sudo ssh-keygen -t ed25519 -f /etc/ssh/ssh_host_ed25519_key
+sudo ssh-keygen -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key
 ```
 
 ## Create strong cryptographic keys on the client
 
 To create a new strong (4096bit) ssh key-pair run on the **local machine**:
-```bash
+```shell
 ssh-keygen -t rsa -b 4096 -a 6000 -C "username@localmachine" -f ~/.ssh/id_rsa_username
 ```
+or use the newer algorithm based on elliptic curve cryptography:
+```shell
+ssh-keygen -t ed25519 -C "username@localmachine" -f /path/to/key/file
+```
+
+## Transfer public key to the server
 
 Copy the newly created public key on the remote machine:
-```bash
+```shell
 ssh-copy-id -i ~/.ssh/id_rsa_username.pub <remote_username>@<remote_machine>:<port>
 ```
+
 **Note:** The remote server should still allow password-logins (`PasswordAuthentication yes`) at this point in order to use `ssh-copy-id`.
 Otherwise, login to the server and copy user's public key manually. 
 
 ## Server configuration
 
-Since Ubuntu 20.04 LTS the default configuration (`/etc/ssh/sshd_config`) includes a new instruction (`Include /etc/ssh/sshd_config.d/*.conf`).
+Newer Linux distros are coming with a default configuration (`/etc/ssh/sshd_config`) which includes a new instruction (`Include /etc/ssh/sshd_config.d/*.conf`).
 This instruction allow us to add our configuration as a separate file inside `/etc/ssh/sshd_config.d` with an ending of `.conf`.
 
 Inside that file, enter the keywords and arguments you want to change from default, or ensure are explicitly addressed. Note that keywords are case-insensitive and arguments are case-sensitive.  
 **Note:** It will supersede settings in the /etc/ssh/sshd_config file.
 
 Add config file:
-```bash
+```shell
 sudo nano /etc/ssh/sshd_config.d/10-my-settings.conf
 ```
 
@@ -76,7 +84,7 @@ sudo sshd -t
 ```
 
 Restart daemon to apply new settings:
-```bash
+```shell
 sudo systemctl restart ssh
 ```
 
@@ -134,8 +142,8 @@ sudo ufw allow from any to any port <sshd_port> proto tcp
 
 ## Appendix A - Sources
 
-- [Use Advanced OpenSSH Features to Harden Access to Your Linode](https://www.linode.com/docs/guides/advanced-ssh-server-security/)
 - [IBM docs - Moduli generation](https://www.ibm.com/docs/en/zos/3.1.0?topic=conversion-moduli-generation)
+- [Vultr - How to Harden Server SSH Access Using Advanced OpenSSH Features](https://docs.vultr.com/how-to-harden-server-ssh-access-using-advanced-openssh-features)
 - [Harden the World - OpenSSH](http://docs.hardentheworld.org/Applications/OpenSSH/)
 - [Hardening SSH](https://medium.com/@jasonrigden/hardening-ssh-1bcb99cd4cef)
 - [Limit access to openssh features with the Match option](https://raymii.org/s/tutorials/Limit_access_to_openssh_features_with_the_Match_keyword.html)
