@@ -147,4 +147,8 @@ sudo ufw allow from any to any port <sshd_port> proto tcp
 - [Harden the World - OpenSSH](http://docs.hardentheworld.org/Applications/OpenSSH/)
 - [Hardening SSH](https://medium.com/@jasonrigden/hardening-ssh-1bcb99cd4cef)
 - [Limit access to openssh features with the Match option](https://raymii.org/s/tutorials/Limit_access_to_openssh_features_with_the_Match_keyword.html)
+
+### Troubleshooting
+
 - [Fixing ssh-keygen Unknown Option -G or -T on Ubuntu 20.04](https://chewett.co.uk/blog/2535/fixing-ssh-keygen-unknown-option-g-or-t-on-ubuntu-20-04/)
+- [Using ssh-copy-id with Username and Password](https://curiouslynerdy.com/ssh-copy-id-too-many-authentication-failures/)
