@@ -109,6 +109,36 @@ and/or
 gpg --auto-key-locate keyserver --locate-keys <email>
 ```
 
+## Quick Guide ;-)
+
+Source: https://serverfault.com/questions/86048/how-to-backup-gpg
+
+Step 1. Export
+
+```shell
+gpg --export --armor your@id.here > your@id.here.pub.asc
+gpg --export-secret-keys --armor your@id.here > your@id.here.priv.asc
+gpg --export-secret-subkeys --armor your@id.here > your@id.here.sub_priv.asc
+gpg --export-ownertrust > ownertrust.txt
+```
+
+Step 2. Import
+
+```shell
+gpg --import your@id.here.pub.asc
+gpg --import your@id.here.priv.asc
+gpg --import your@id.here.sub_priv.asc
+gpg --import-ownertrust ownertrust.txt
+```
+
+Step 3. Trust imported key
+
+```
+gpg --edit-key your@id.here
+gpg> trust
+Your decision? 5
+```
+
 ## Appendix A - Sources
 
 - [keys.openpgp.org - Usage](https://keys.openpgp.org/about/usage)
