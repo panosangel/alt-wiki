@@ -2,10 +2,9 @@
 
 ## Recommended plugins
 
-### Productivity
+### Development
 
-- `Key Promoter X` by Hal's Corner
-- `Rainbow Brackets` by izhangzhihao
+- `Astro` by JetBrains
 
 ### Themes & Icons
 
@@ -13,17 +12,24 @@
 - `Material Theme UI` by Atom Material Themes & Plugins
 - `Atom Material Icons` by Atom Material Themes & Plugins
 
-### Miscellaneous
-
-- `Import Cost` by Dennis Ushakov, Andrey Starovoyt
-- `WakaTime` by WakaTme
-
 ## Preferences
 
 ### Appearance & Behavior
 
 - Appearance
-  - Widescreen tool window layout
+  - Compact mode: true
+  - Widescreen tool window layout: true
+
+- Editor
+  - General
+    - Editor Tabs
+      - Mark Modified: true
+  - Code Style
+    - TypeScript
+      - Tabs and indents
+        - Tab size: 2
+        - Indent: 2
+        - Continuation indent: 2
 
 - Material Theme: Atom One Dark
   - Contrast Mode
@@ -47,6 +53,10 @@
 - View -> Appearance -> Enter Zen Mode
 - Help -> Learn IDE Features
 - Help -> Ny Productivity
+
+## Various
+
+- Help -> Edit Custom VM Options -> -Xmx4096m
 
 ## Source
 
