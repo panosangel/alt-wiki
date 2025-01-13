@@ -1,7 +1,10 @@
 # CD Ripping
 
 ## Install Software
-`sudo apt-get install abcde cd-discid lame cdparanoia eyed3 id3 id3v2`
+
+```shell
+sudo apt install abcde cd-discid cdparanoia eyed3 id3v2 lame flac
+```
 
 ## Options
 Override settings in `~/.abcde.conf` according to [CD Ripping: abcde is the best](http://minimalinux.blogspot.com/2011/02/cd-ripping-abcde-is-best.html)  
