@@ -84,12 +84,16 @@ EJECTCD=y                               # Please eject cd when finished :-)
 ```
 
 ## Run
+
 `abcde -V`
 
-## Appendix A
+## Sources
+
+- [abcde - A Better CD Encoder](https://abcde.einval.com/wiki/)
 - [abcde man page](https://www.mankier.com/1/abcde)  
-- [abcde - A Better CD Encoder](https://abcde.einval.com/wiki/)  
+- [johnlane / abcde](https://github.com/johnlane/abcde/)
+- [andrews-corner / abcde](https://www.andrews-corner.org/abcde/)
+- [CD Ripping: abcde is the best](https://minimalinux.blogspot.com/2011/02/cd-ripping-abcde-is-best.html)
 - [How to Easily Rip a CD with Abcde](https://www.maketecheasier.com/rip-cd-with-abcde/)  
 - [Automatically ripping CDs on linux](https://www.imagetracking.org.uk/2018/08/automatically-ripping-cds-on-linux/)  
 - [Use abcde to produce high quality flac and mp3 output with album art under Xenial?](https://askubuntu.com/questions/788327/use-abcde-to-produce-high-quality-flac-and-mp3-output-with-album-art-under-xenia)  
-- [tags not written #3](https://github.com/johnlane/abcde/issues/3)  
