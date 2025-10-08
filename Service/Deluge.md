@@ -50,6 +50,9 @@ docker-compose up
 The first time the image will create all the necessary configuration files.
 **Then bring the container down so we can edit the files safely.**
 
+Before making any changes to the defaults study following guide which has an extensive explanation of a good Deluge configuration
+[RapidSeedbox - The Definitive Guide to Deluge (2025 Update)](https://www.rapidseedbox.com/kb/ultimate-deluge-guide)
+
 ```shell
 nano ~/docker/deluge/config/core.conf
 ```
