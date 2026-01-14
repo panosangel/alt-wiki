@@ -97,7 +97,7 @@ df -Th
 
 In Ubuntu, it's very convenient to install SnapRAID from sources*:
 ```bash
-wget https://github.com/amadvance/snapraid/releases/download/v12.2/snapraid-12.2.tar.gz
+wget https://github.com/amadvance/snapraid/releases/download/v13.0/snapraid-13.0.tar.gz
 tar xf snapraid-*.tar.gz
 cd snapraid-*
 ./configure
