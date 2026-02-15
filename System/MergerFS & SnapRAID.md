@@ -204,3 +204,5 @@ sudo crontab -e
 - [Setting up SnapRAID on Ubuntu to Create a Flexible Home Media Fileserver](https://zackreed.me/setting-up-snapraid-on-ubuntu/)
 - [MergerFS neat tricks](https://zackreed.me/mergerfs-neat-tricks/)
 - ["check" and the parity drive](https://sourceforge.net/p/snapraid/discussion/1677233/thread/6e990e7a/)
+- [Zack Reed -SnapRAID + mergerfs on Ubuntu 24.04: a modern, flexible home storage stack](https://zackreed.me/posts/snapraid-mergerfs-on-ubuntu-24.04/#what-were-building-and-why)
+- [Zack Reed- A Modern, Updated SnapRAID Maintenance Script](https://zackreed.me/posts/modern-snapraid-maintenance-script/)
