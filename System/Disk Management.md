@@ -2,14 +2,19 @@
 
 ## Disk Devices
 
-List available disk devices with names and uuids:
+List available disk devices with a selection of useful columns:
 ```bash
-lsblk -o +uuid,name
+lsblk -o +UUID,NAME,SIZE,MODEL,SERIAL,TYPE,MOUNTPOINT
+```
+
+If you’re using SATA/SAS HBAs, also nice:
+```shell
+ls -l /dev/disk/by-id/
 ```
 
 ## Create partitions in new disks
 
-Lets assume that we are working on `/dev/sdb` disk.
+Lets assume that we are working on `/dev/sdb` disk. **WARNING: Select the correct disk!**
 ```bash
 sudo parted -a optimal /dev/sdb
 ```
@@ -19,14 +24,9 @@ Create a new GPT disklabel (aka partition table):
 (parted) mklabel gpt
 ```
 
-Set the default unit to TB:
-```
-(parted) unit TB
-```
-
 Create one partition occupying all the space on the drive:
 ```
-(parted) mkpart primary ext4 0% 100%
+(parted) mkpart "Data Disk" ext4 1MiB 100%
 ```
 
 Check that the results are correct:
@@ -39,7 +39,20 @@ There should be one partition occupying the entire drive. Save and quit "parted"
 (parted) quit
 ```
 
-To format the new partition as ext4 file system (best for use under Ubuntu):
+### Scripting
+
+Alternatively, if you want to avoid the prompts, it possible to run the command with `--script` flag.
+**WARNING: There is no undo functionality ;)**
+
+```
+parted -a optimal /dev/sdb --script \
+mklabel gpt \
+mkpart "Data Disk" ext4 1MiB 100%
+```
+
+## Format filesystem
+
+To format the new partition as ext4 file system:
 ```bash
 sudo mkfs -t ext4 /dev/sdb1
 ```
@@ -48,11 +61,13 @@ or
 sudo mkfs.ext4 /dev/sdb1
 ```
 
-## Modify Reserved Space (Optional)
-
 When formatting the drive as ext3/ext4, 5% of the drive's total space is reserved for the super-user (root) so that the operating system can still write to the disk even if it is full. However, for disks that only contain data, this is not necessary.
+Use `-m` flag to set the reservation percentage:
+```shell
+sudo mkfs.ext4 -m 3 /dev/sdb1
+```
 
-**Note:** You may run this command on a fat32 file system, but it will do nothing; therefore, I highly recommend not running it.
+### Modify reserved space later (Optional)
 
 You can adjust the percentage of reserved space with the "tune2fs" command, like this:
 ```bash
@@ -63,5 +78,6 @@ This example reserves 3% of space - change this number if you wish.
 ## Appendix A - Sources
 
 - [Ubuntu Official - Installing A New Hard Drive](https://help.ubuntu.com/community/InstallingANewHardDrive)
-
-
+- [Arch Linux Wiki - Parted](https://wiki.archlinux.org/title/Parted) #interesting
+- [Arch Linux Wiki - File Systems](https://wiki.archlinux.org/title/File_systems)
+- [Zack Reed -SnapRAID + mergerfs on Ubuntu 24.04: a modern, flexible home storage stack](https://zackreed.me/posts/snapraid-mergerfs-on-ubuntu-24.04/#what-were-building-and-why)
