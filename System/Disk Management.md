@@ -47,7 +47,7 @@ Alternatively, if you want to avoid the prompts, it possible to run the command 
 ```
 parted -a optimal /dev/sdX --script \
 mklabel gpt \
-mkpart "Data Disk" ext4 1MiB 100%
+mkpart Data-Disk ext4 1MiB 100%
 ```
 
 ## Format filesystem
