@@ -20,13 +20,14 @@ sudo ssh-keygen -t ed25519 -f /etc/ssh/ssh_host_ed25519_key
 
 ## Create strong cryptographic keys on the client
 
-To create a new strong (4096bit) ssh key-pair run on the **local machine**:
+To create a new strong ssh key-pair use the newer algorithm based on elliptic curve cryptography. Run on the **local machine**:
+```shell
+ssh-keygen -t ed25519 -a 200 -C "username@localmachine" -f /path/to/key/file
+```
+
+Or fallback to older RSA standard:
 ```shell
 ssh-keygen -t rsa -b 4096 -a 6000 -C "username@localmachine" -f ~/.ssh/id_rsa_username
-```
-or use the newer algorithm based on elliptic curve cryptography:
-```shell
-ssh-keygen -t ed25519 -C "username@localmachine" -f /path/to/key/file
 ```
 
 ## Transfer public key to the server
