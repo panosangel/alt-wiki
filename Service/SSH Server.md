@@ -34,13 +34,13 @@ ssh-keygen -t rsa -b 4096 -a 6000 -C "username@localmachine" -f ~/.ssh/id_rsa_us
 
 Copy the newly created public key on the remote machine:
 ```shell
-ssh-copy-id -i ~/.ssh/id_rsa_username.pub <remote_username>@<remote_machine>:<port>
+ssh-copy-id -i ~/.ssh/id_rsa_username.pub -p <port> <remote_username>@<remote_machine>
 ```
 
 If you have more than a couple of keys in your account and then you will probably face "too many authentication failures" response.
 To avoid this add the `-o PubKeyAuthentication=no` option:
 ```shell
-ssh-copy-id -i ~/.ssh/id_rsa_username.pub -o PubKeyAuthentication=no <remote_username>@<remote_machine>:<port>
+ssh-copy-id -i ~/.ssh/id_rsa_username.pub -o PubKeyAuthentication=no -p <port> <remote_username>@<remote_machine>
 ```
 
 **Note:** The remote server should still allow password-logins (`PasswordAuthentication yes`) at this point in order to use `ssh-copy-id`.
