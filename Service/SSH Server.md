@@ -66,7 +66,6 @@ ListenAddress XXX.XXX.XXX.XXX # to be changed with the real server IP
 
 HostKey /etc/ssh/ssh_host_rsa_key
 HostKey /etc/ssh/ssh_host_ed25519_key
-HostKey /etc/ssh/ssh_host_ecdsa_key
 
 PermitRootLogin no
 PasswordAuthentication no
@@ -78,9 +77,12 @@ X11Forwarding no
 ClientAliveInterval 300
 ClientAliveCountMax 3
 
-AllowGroups localuser common
+AllowUsers randomuser
+AllowGroups somegroup
 
-Match Group common
+AllowTcpForwarding no
+
+Match Group anothergroup
   AllowTcpForwarding yes
 ```
 
