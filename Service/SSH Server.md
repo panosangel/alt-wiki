@@ -11,12 +11,11 @@ cp moduli-4096 /etc/ssh/moduli
 rm moduli-4096
 ```
 
-Re-generate the RSA, ED25519 and ECDSA keys just to be on the safe side
+Re-generate the RSA and ED25519 keys just to be on the safe side
 ```shell
 sudo rm /etc/ssh/ssh_host_*  
 sudo ssh-keygen -t rsa -b 4096 -f /etc/ssh/ssh_host_rsa_key 
 sudo ssh-keygen -t ed25519 -f /etc/ssh/ssh_host_ed25519_key
-sudo ssh-keygen -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key
 ```
 
 ## Create strong cryptographic keys on the client
