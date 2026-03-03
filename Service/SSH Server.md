@@ -5,10 +5,10 @@
 Use a **stronger** Diffie-Hellman Algorithm
 ```shell
 mkdir /tmp/moduli && cd /tmp/moduli
-ssh-keygen -M generate -O bits=2048 moduli-2048.candidates
-ssh-keygen -M screen moduli-2048 -f moduli-2048.candidates
-cp moduli-2048 /etc/ssh/moduli
-rm moduli-2048
+ssh-keygen -M generate -O bits=4096 moduli-4096.candidates
+ssh-keygen -M screen -f moduli-4096.candidates
+cp moduli-4096 /etc/ssh/moduli
+rm moduli-4096
 ```
 
 Re-generate the RSA, ED25519 and ECDSA keys just to be on the safe side
