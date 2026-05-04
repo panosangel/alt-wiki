@@ -6,7 +6,7 @@ Use a **stronger** Diffie-Hellman Algorithm
 ```shell
 mkdir /tmp/moduli && cd /tmp/moduli
 ssh-keygen -M generate -O bits=4096 moduli-4096.candidates
-ssh-keygen -M screen -f moduli-4096.candidates
+ssh-keygen -M screen -f moduli-4096.candidates moduli-4096
 cp moduli-4096 /etc/ssh/moduli
 rm moduli-4096
 ```
