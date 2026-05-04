@@ -148,6 +148,12 @@ Otherwise:
 sudo ufw allow from any to any port <sshd_port> proto tcp
 ```
 
+## Force password login
+
+```shell
+ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no <remote_username>@<remote_machine>
+```
+
 ## Appendix A - Sources
 
 - [IBM docs - Moduli generation](https://www.ibm.com/docs/en/zos/3.1.0?topic=conversion-moduli-generation)
