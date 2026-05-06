@@ -3,7 +3,7 @@
 ## Disk Devices
 
 List available disk devices with a selection of useful columns:
-```bash
+```shell
 lsblk -o +UUID,NAME,SIZE,MODEL,SERIAL,TYPE,MOUNTPOINT
 ```
 
@@ -15,7 +15,7 @@ ls -l /dev/disk/by-id/
 ## Create partitions in new disks
 
 Lets assume that we are working on `/dev/sdX` disk. **WARNING: Select the correct disk!**
-```bash
+```shell
 sudo parted -a optimal /dev/sdX
 ```
 
@@ -53,11 +53,11 @@ mkpart Data-Disk ext4 1MiB 100%
 ## Format filesystem
 
 To format the new partition as ext4 file system:
-```bash
+```shell
 sudo mkfs -t ext4 /dev/sdX1
 ```
 or
-```bash
+```shell
 sudo mkfs.ext4 /dev/sdX1
 ```
 
@@ -70,7 +70,7 @@ sudo mkfs.ext4 -m 3 /dev/sdX1
 ### Modify reserved space later (Optional)
 
 You can adjust the percentage of reserved space with the "tune2fs" command, like this:
-```bash
+```shell
 sudo tune2fs -m 3 /dev/sdX1
 ```
 This example reserves 3% of space - change this number if you wish.
