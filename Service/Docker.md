@@ -1,12 +1,15 @@
 # Docker
 
-## Install Docker CE for Ubuntu
+## Installation
 
-[Official Guide](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
+### Docker Engine
 
-## Install Docker Compose
+- [Official Docs - Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+- [Official Docs - Install Docker Engine on Debian](https://docs.docker.com/engine/install/debian/)
 
-[Official Guide](https://docs.docker.com/compose/install/)
+### Docker Compose
+
+[Official Docs](https://docs.docker.com/compose/install/)
 
 ## Add managing users
 
