@@ -75,6 +75,27 @@ sudo tune2fs -m 3 /dev/sdX1
 ```
 This example reserves 3% of space - change this number if you wish.
 
+## Health checks
+
+In order to catch data & metadata corruption early we need to run periodic fsck checks:
+
+```shell
+# Set time-based check every 1 month
+sudo tune2fs -i 1m /dev/sdX1
+```
+
+and/or
+
+```shell
+# Also set a mount-count-based check every 30 mounts as a safety net
+sudo tune2fs -c 30 /dev/sdX1
+```
+
+**Note:** `fsck` on `ext4` runs at boot time when the check is triggered — the system will pause during boot to run it. On a 1TB partition this typically takes a few minutes. This is expected and fine for a homelab.
+
+Furthermore, we could mount the `ext4` filesystem with `errors=remount-ro` mount option in `/etc/fstab` for the root partition.
+If corruption is detected at runtime, the filesystem goes read-only rather than silently serving bad data, which would make symptoms more obvious sooner.
+
 ## Appendix A - Sources
 
 - [Ubuntu Official - Installing A New Hard Drive](https://help.ubuntu.com/community/InstallingANewHardDrive)
