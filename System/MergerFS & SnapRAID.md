@@ -75,14 +75,14 @@ sudo nano /etc/fstab
 Add the following at the end of the file
 ```
 # Data Disks
-UUID=4bf67ef2-8196-45b7-9f32-11ad2c656ba4    /mnt/disk1     ext4  defaults 0 2
-UUID=71c291ce-c124-466c-a09d-c7c413c61081    /mnt/disk2     ext4  defaults 0 2
+UUID=4bf67ef2-8196-45b7-9f32-11ad2c656ba4    /mnt/disk1     ext4  defaults,noatime,nodev,nosuid,nofail,errors=remount-ro 0 2
+UUID=71c291ce-c124-466c-a09d-c7c413c61081    /mnt/disk2     ext4  defaults,noatime,nodev,nosuid,nofail,errors=remount-ro 0 2
 
 # MergerFS union
 /mnt/disk*                                   /mnt/storage  fuse.mergerfs cache.files=partial,moveonenospc=true,dropcacheonclose=false,category.create=mspmfs,func.getattr=newest,minfreespace=100G,inodecalc=path-hash,fsname=mergerfs 0 0
 
 # SnapRAID disks
-UUID=1acb96a3-33f3-4ec8-808e-9566c6794e36    /mnt/parity1   ext4  defaults 0 0
+UUID=1acb96a3-33f3-4ec8-808e-9566c6794e36    /mnt/parity1   ext4  defaults,noatime,nodev,nosuid,noexec,nofail,errors=remount-ro 0 0
 ```
 
 Save and run the following commands:
