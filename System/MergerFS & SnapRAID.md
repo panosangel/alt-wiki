@@ -29,9 +29,9 @@ sudo tune2fs -m 1 /dev/sdd1
 ##  MergerFS installation
 
 Find the latest stable release from the [Official Source](https://github.com/trapexit/mergerfs/releases). 
-Currently, this version is `2.40.2` and we target `Ubuntu 24.04` so download and install at once:
+Currently, this version is `2.42.0` and we target `Ubuntu 24.04` so download and install at once:
 ```bash
-wget https://github.com/trapexit/mergerfs/releases/download/2.41.1/mergerfs_2.41.1.ubuntu-noble_amd64.deb && sudo dpkg -i mergerfs*.deb
+wget https://github.com/trapexit/mergerfs/releases/download/2.42.0/mergerfs_2.42.0.ubuntu-noble_amd64.deb && sudo dpkg -i mergerfs*.deb
 ```
 If not present, `fuse` needs to be installed:
 ```bash
